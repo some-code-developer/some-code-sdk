@@ -1,0 +1,10 @@
+[
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#Success.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false,
+    "response": false
+  }
+]

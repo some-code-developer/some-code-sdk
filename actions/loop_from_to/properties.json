@@ -1,0 +1,32 @@
+[
+  {
+    "label": "From",
+    "name": "from",
+    "variableName": "#from#",
+    "propertytype": "number",
+    "required": true,
+    "hasdefault": true,
+    "default": 0
+  },
+  {
+    "label": "To",
+    "name": "to",
+    "variableName": "#to#",
+    "propertytype": "number",
+    "required": true,
+    "hasdefault": true,
+    "default": 0
+  },
+  {
+    "label": "Loop Index",
+    "name": "index",
+    "variableName": "#index#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#LoopFromTo.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

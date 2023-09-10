@@ -1,0 +1,20 @@
+[
+  {
+    "label": "File Name",
+    "name": "file",
+    "variableName": "#file#",
+    "propertytype": "filename",
+    "showhintchecked": true,
+    "hint": "File to check",
+    "minchecked": true,
+    "min": "1",
+    "required": true
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#CheckFile.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false
+  }
+]

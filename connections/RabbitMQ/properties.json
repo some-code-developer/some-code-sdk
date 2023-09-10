@@ -1,0 +1,56 @@
+[
+  {
+    "label": "Host",
+    "name": "host",
+    "propertytype": "text",
+    "default": "",
+    "required": true
+  },
+  {
+    "label": "VHost",
+    "name": "vhost",
+    "propertytype": "text",
+    "hasdefault": true,
+    "default": "/",
+    "required": true
+  },
+  {
+    "label": "Port",
+    "name": "port",
+    "propertytype": "number",
+    "hasdefault": true,
+    "required": true,
+    "default": "5672"
+  },
+  {
+    "label": "User",
+    "name": "user",
+    "propertytype": "text"
+  },
+  {
+    "label": "Password",
+    "name": "password",
+    "propertytype": "password"
+  },
+  {
+    "label": "Enable SSL",
+    "name": "enableSSL",
+    "propertytype": "checkbox",
+    "required": false
+  },
+  {
+    "label": "Key File",
+    "name": "keyFile",
+    "propertytype": "text"
+  },
+  {
+    "label": "Cert File",
+    "name": "certFile",
+    "propertytype": "text"
+  },
+  {
+    "label": "Ca File",
+    "name": "caFile",
+    "propertytype": "text"
+  }
+]

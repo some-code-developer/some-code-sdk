@@ -1,0 +1,47 @@
+{
+  "hideToolbar": true,
+  "readOnly": false,
+  "hideDelete": true,
+  "hideSaveAs": true,
+  "title": "Properties",
+  "definition": [
+    {
+      "cols": [
+        {
+          "childType": "Input",
+          "width": 0,
+          "name": "name",
+          "showlabelchecked": true,
+          "label": "Name",
+          "required": true
+        }
+      ]
+    },
+    {
+      "cols": [
+        {
+          "childType": "Editor",
+          "width": 0,
+          "name": "notes",
+          "showlabelchecked": true,
+          "label": "Notes"
+        }
+      ]
+    },
+    {
+      "cols": [
+        {
+          "childType": "Input",
+          "width": 0,
+          "name": "color",
+          "showlabelchecked": true,
+          "label": "Color",
+          "fieldtype": "color",
+          "hasdefault": true,
+          "default": "#f0f9ff"
+        }
+      ]
+    }
+  ],
+  "actions": []
+}

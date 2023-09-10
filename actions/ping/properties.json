@@ -1,0 +1,20 @@
+[
+  {
+    "label": "Host/IP Address",
+    "name": "host",
+    "variableName": "#host#",
+    "propertytype": "host",
+    "showhintchecked": true,
+    "hint": "Host to ping",
+    "minchecked": true,
+    "min": "1",
+    "required": true
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#Ping.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false
+  }
+]

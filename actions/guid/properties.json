@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Guid",
+    "name": "guid",
+    "variableName": "#guid#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#Guid.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

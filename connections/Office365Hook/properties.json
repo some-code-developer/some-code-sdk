@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Email",
+    "name": "email",
+    "propertytype": "email",
+    "required": true
+  },
+  {
+    "label": "Client ID",
+    "name": "clientId",
+    "propertytype": "text",
+    "required": true
+  },
+  {
+    "label": "Tenant ID",
+    "name": "tenantID",
+    "propertytype": "text",
+    "required": true
+  },
+  {
+    "label": "Client Secret",
+    "name": "clientSecret",
+    "propertytype": "password",
+    "required": true
+  }
+]

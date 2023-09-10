@@ -1,0 +1,27 @@
+[
+  {
+    "label": "Connection",
+    "name": "connection",
+    "variableName": "#connection#",
+    "propertytype": "connection",
+    "required": false,
+    "connection_type": "FTP",
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Remote Folder to Create",
+    "name": "folder",
+    "variableName": "#folder#",
+    "propertytype": "text",
+    "required": true,
+    "hasdefault": true,
+    "default": "/"
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#FtpCreateFolder.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

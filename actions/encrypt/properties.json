@@ -1,0 +1,31 @@
+[
+  {
+    "label": "Source File",
+    "name": "source",
+    "variableName": "#source#",
+    "propertytype": "filename",
+    "required": true
+  },
+  {
+    "label": "Target File",
+    "name": "target",
+    "variableName": "#target#",
+    "propertytype": "filename",
+    "required": true
+  },
+  {
+    "label": "Password",
+    "name": "password",
+    "variableName": "#password#",
+    "propertytype": "password",
+    "required": true,
+    "minchecked": true,
+    "min": "16"
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#Encrypt.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

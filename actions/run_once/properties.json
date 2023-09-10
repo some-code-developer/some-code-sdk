@@ -1,0 +1,27 @@
+[
+  {
+    "label": "Start Date Time",
+    "name": "startDateTime",
+    "variableName": "#startDateTime#",
+    "propertytype": "datetime-local",
+    "required": true
+  },
+  {
+    "label": "Wait",
+    "name": "wait",
+    "variableName": "#wait#",
+    "propertytype": "checkbox",
+    "required": false,
+    "hasdefault": true,
+    "default": "true",
+    "showhintchecked": true,
+    "hint": "When selected action will wait until until excution date time otherwise it will immediately fail"
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#RunOnce.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false
+  }
+]

@@ -1,0 +1,93 @@
+{
+  "hideToolbar": true,
+  "readOnly": false,
+  "hideDelete": true,
+  "hideSaveAs": true,
+  "title": "Properties",
+  "definition": [
+    {
+      "cols": [
+        {
+          "childType": "Input",
+          "width": "0",
+          "showlabelchecked": true,
+          "name": "image",
+          "label": "Image",
+          "required": true,
+          "hasbutton": true
+        }
+      ]
+    },
+    {
+      "cols": [
+        {
+          "childType": "Input",
+          "width": 0,
+          "name": "color",
+          "showlabelchecked": true,
+          "label": "Background Color",
+          "fieldtype": "color",
+          "hasdefault": true,
+          "default": "#f0f9ff"
+        },
+        {
+          "childType": "Input",
+          "width": 0,
+          "name": "border_color",
+          "showlabelchecked": true,
+          "label": "Border Color",
+          "fieldtype": "color",
+          "hasdefault": true,
+          "default": "#000000"
+        },
+        {
+          "childType": "Input",
+          "width": "0",
+          "name": "corner_radius",
+          "showlabelchecked": true,
+          "label": "Corner Radius",
+          "required": true,
+          "disabled": false,
+          "fieldtype": "number",
+          "hasdefault": true,
+          "default": "5",
+          "minchecked": true,
+          "min": "0",
+          "errormessage": "Invalid value"
+        }
+      ]
+    },
+    {
+      "cols": [
+        {
+          "childType": "Checkbox",
+          "width": "0",
+          "name": "transparent",
+          "showlabelchecked": true,
+          "label": "Transparent",
+          "required": true,
+          "disabled": false
+        },
+        {
+          "childType": "Checkbox",
+          "width": "0",
+          "name": "border",
+          "showlabelchecked": true,
+          "label": "Border",
+          "required": true,
+          "disabled": false
+        },
+        {
+          "childType": "Checkbox",
+          "width": "0",
+          "name": "shadow",
+          "showlabelchecked": true,
+          "label": "Show Shadow",
+          "required": true,
+          "disabled": false
+        }
+      ]
+    }
+  ],
+  "actions": []
+}

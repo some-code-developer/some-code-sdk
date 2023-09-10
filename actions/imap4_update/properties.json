@@ -1,0 +1,59 @@
+[
+  {
+    "label": "Connection",
+    "name": "connection",
+    "variableName": "#connection#",
+    "propertytype": "connection",
+    "required": true,
+    "connection_type": "IMAP4",
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Mail Box",
+    "name": "box",
+    "variableName": "#box#",
+    "propertytype": "text",
+    "hasdefault": true,
+    "default": "INBOX",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "UID",
+    "name": "uid",
+    "variableName": "#uid#",
+    "propertytype": "textarea",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Action to perform",
+    "name": "action",
+    "variableName": "#action#",
+    "propertytype": "select",
+    "required": true,
+    "keys": "MAR\nDM\nMTF",
+    "values": "Mark As Read\nDelete Message\nMove To Folder",
+    "hasdefault": true,
+    "default": "MAR"
+  },
+  {
+    "label": "Move To Folder",
+    "name": "actionBox",
+    "variableName": "#actionBox#",
+    "propertytype": "textarea",
+    "hasdefault": true,
+    "default": "/",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#Imap4MailBoxes.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false,
+    "response": false
+  }
+]

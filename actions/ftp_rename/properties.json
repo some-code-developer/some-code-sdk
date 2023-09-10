@@ -1,0 +1,36 @@
+[
+  {
+    "label": "Connection",
+    "name": "connection",
+    "variableName": "#connection#",
+    "propertytype": "connection",
+    "required": true,
+    "connection_type": "FTP",
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Source File/Folder",
+    "name": "source",
+    "variableName": "#source#",
+    "propertytype": "textarea",
+    "showhintchecked": true,
+    "hint": "Source File",
+    "required": true
+  },
+  {
+    "label": "Target File/Folder",
+    "name": "target",
+    "variableName": "#target#",
+    "propertytype": "textarea",
+    "showhintchecked": true,
+    "hint": "Target Folder",
+    "required": true
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#FtpDownloadFolder.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

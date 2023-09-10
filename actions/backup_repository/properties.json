@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Backup File",
+    "name": "file",
+    "variableName": "#file#",
+    "propertytype": "filename",
+    "required": true
+  },
+  {
+    "label": "Password",
+    "name": "password",
+    "variableName": "#password#",
+    "propertytype": "password",
+    "required": true
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#BackupFile.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

@@ -1,0 +1,164 @@
+[
+  {
+    "label": "Start Date Time",
+    "name": "startAt",
+    "variableName": "#startAt#",
+    "propertytype": "datetime-local",
+    "required": true
+  },
+  {
+    "label": "Every Week(S)",
+    "name": "everyWeek",
+    "variableName": "#everyWeek#",
+    "propertytype": "number",
+    "minchecked": true,
+    "min": "1",
+    "maxchecked": true,
+    "max": "31",
+    "required": true,
+    "hasdefault": true,
+    "default": "1"
+  },
+  {
+    "label": "Monday",
+    "name": "mon",
+    "variableName": "#mon#",
+    "propertytype": "checkbox",
+    "required": false,
+    "hasdefault": true,
+    "default": "true"
+  },
+  {
+    "label": "Tuesday",
+    "name": "tue",
+    "variableName": "#tue#",
+    "propertytype": "checkbox",
+    "required": false,
+    "hasdefault": true,
+    "default": "1"
+  },
+  {
+    "label": "Wednesday",
+    "name": "wed",
+    "variableName": "#wed#",
+    "propertytype": "checkbox",
+    "required": false,
+    "hasdefault": true,
+    "default": "1"
+  },
+  {
+    "label": "Thursday",
+    "name": "thu",
+    "variableName": "#thu#",
+    "propertytype": "checkbox",
+    "required": false,
+    "hasdefault": true,
+    "default": "1"
+  },
+  {
+    "label": "Friday",
+    "name": "fri",
+    "variableName": "#fri#",
+    "propertytype": "checkbox",
+    "required": false,
+    "hasdefault": true,
+    "default": "1"
+  },
+  {
+    "label": "Saturday",
+    "name": "sat",
+    "variableName": "#sat#",
+    "propertytype": "checkbox",
+    "required": false,
+    "hasdefault": true,
+    "default": "1"
+  },
+  {
+    "label": "Sunday",
+    "name": "sun",
+    "variableName": "#sun#",
+    "propertytype": "checkbox",
+    "required": false,
+    "hasdefault": true,
+    "default": "1"
+  },
+  {
+    "label": "Repeat Type",
+    "name": "repeatType",
+    "variableName": "#repeatType#",
+    "propertytype": "select",
+    "keys": "0\n1\n2",
+    "values": "Do not repeat\nEvery Minute\nEvery Hour",
+    "required": true,
+    "hasdefault": true,
+    "default": "0"
+  },
+  {
+    "label": "Repeat Every",
+    "name": "repeatEvery",
+    "variableName": "#repeatEvery#",
+    "propertytype": "number",
+    "hasdefault": true,
+    "default": "1",
+    "minchecked": true,
+    "min": "1",
+    "required": true
+  },
+  {
+    "label": "From",
+    "name": "repeatStart",
+    "variableName": "#repeatStart#",
+    "propertytype": "time",
+    "hint": "From Time",
+    "hasdefault": true,
+    "default": "00:00",
+    "required": true
+  },
+  {
+    "label": "To",
+    "name": "repeatUntil",
+    "variableName": "#repeatUntil#",
+    "propertytype": "time",
+    "showhintchecked": true,
+    "hint": "Till Time",
+    "required": true,
+    "hasdefault": true,
+    "default": "23:59"
+  },
+  {
+    "label": "Use End Date",
+    "name": "useEndDate",
+    "variableName": "#useEndDate#",
+    "propertytype": "checkbox",
+    "hasdefault": true,
+    "default": "0",
+    "keys": "",
+    "values": "",
+    "required": false
+  },
+  {
+    "label": "End Date",
+    "name": "endDate",
+    "variableName": "#endDate#",
+    "propertytype": "date",
+    "hasdefault": false
+  },
+  {
+    "label": "Wait",
+    "name": "wait",
+    "variableName": "#wait#",
+    "propertytype": "checkbox",
+    "required": false,
+    "hasdefault": true,
+    "default": "true",
+    "showhintchecked": true,
+    "hint": "When selected action will wait until until excution date time otherwise it will immediately fail"
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#RunWeekly.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false
+  }
+]

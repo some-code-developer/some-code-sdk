@@ -1,0 +1,34 @@
+[
+  {
+    "label": "Connection",
+    "name": "connection",
+    "variableName": "#connection#",
+    "propertytype": "connection",
+    "required": false,
+    "connection_type": "FTP",
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Remote File",
+    "name": "file",
+    "variableName": "#file#",
+    "required": true,
+    "propertytype": "text"
+  },
+  {
+    "label": "Local Folder",
+    "name": "folder",
+    "variableName": "#folder#",
+    "propertytype": "foldername",
+    "required": true,
+    "hasdefault": true,
+    "default": "/"
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#FtpDownloadFiles.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

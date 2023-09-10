@@ -1,0 +1,46 @@
+[
+  {
+    "label": "Connection Type",
+    "name": "type",
+    "propertytype": "select",
+    "keys": "sqlite\nmssql\npostgres\nmysql\noracle",
+    "values": "SQLite\nMS Sql Server\nPostgres\nMySql\nOracle",
+    "required": true
+  },
+  {
+    "label": "Host",
+    "name": "host",
+    "propertytype": "text",
+    "required": false
+  },
+  {
+    "label": "Port",
+    "name": "port",
+    "propertytype": "number",
+    "required": false
+  },
+  {
+    "label": "Instance",
+    "name": "instanceName",
+    "propertytype": "text",
+    "required": false
+  },
+  {
+    "label": "Database",
+    "name": "database",
+    "propertytype": "text",
+    "required": false
+  },
+  {
+    "label": "User",
+    "name": "username",
+    "propertytype": "text",
+    "required": false
+  },
+  {
+    "label": "Password",
+    "name": "password",
+    "propertytype": "password",
+    "required": false
+  }
+]

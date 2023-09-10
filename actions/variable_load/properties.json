@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Variable Name",
+    "name": "variable",
+    "variableName": "#variable#",
+    "propertytype": "text",
+    "required": true
+  },
+  {
+    "label": "File Name",
+    "name": "file",
+    "variableName": "#file#",
+    "propertytype": "filename",
+    "required": true
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#DeleteVariable.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "label": "XML",
+    "name": "xml",
+    "variableName": "#xml#",
+    "propertytype": "textarea",
+    "showhintchecked": true,
+    "hint": "XML To Transform",
+    "minchecked": true,
+    "min": "1",
+    "required": true
+  },
+  {
+    "label": "Transformation Result",
+    "name": "json",
+    "variableName": "#json#",
+    "propertytype": "variable",
+    "required": false
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#Xml2Json.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false
+  }
+]

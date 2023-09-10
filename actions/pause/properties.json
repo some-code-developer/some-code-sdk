@@ -1,0 +1,20 @@
+[
+  {
+    "label": "Pause",
+    "name": "Pause",
+    "variableName": "#Pause.Value#",
+    "propertytype": "time",
+    "minchecked": true,
+    "hasdefault": true,
+    "default": "00:00",
+    "required": true
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#Pause.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false,
+    "response": false
+  }
+]

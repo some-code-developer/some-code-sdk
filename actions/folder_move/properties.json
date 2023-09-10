@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Source Folder",
+    "name": "source",
+    "variableName": "#source#",
+    "propertytype": "foldername",
+    "showhintchecked": true,
+    "hint": "Source File",
+    "required": true
+  },
+  {
+    "label": "Target Folder",
+    "name": "target",
+    "variableName": "#target#",
+    "propertytype": "foldername",
+    "showhintchecked": true,
+    "hint": "Target Folder",
+    "required": true
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#MoveFolder.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

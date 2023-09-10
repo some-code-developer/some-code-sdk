@@ -1,0 +1,38 @@
+[
+  {
+    "label": "XML",
+    "name": "xml",
+    "variableName": "#xml#",
+    "propertytype": "textarea",
+    "showhintchecked": true,
+    "hint": "XML To Transform",
+    "minchecked": true,
+    "min": "1",
+    "required": true
+  },
+  {
+    "label": "XSLT",
+    "name": "xslt",
+    "variableName": "#xslt#",
+    "propertytype": "textarea",
+    "showhintchecked": true,
+    "hint": "XSLT Script",
+    "minchecked": true,
+    "min": "1",
+    "required": true
+  },
+  {
+    "label": "Transformation Result",
+    "name": "result",
+    "variableName": "#result#",
+    "propertytype": "variable",
+    "required": false
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#XsltProcessor.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false
+  }
+]

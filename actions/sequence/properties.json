@@ -1,0 +1,23 @@
+[
+  {
+    "label": "Start From",
+    "name": "from",
+    "variableName": "#from#",
+    "propertytype": "number",
+    "required": true,
+    "hasdefault": true,
+    "default": 0
+  },
+  {
+    "label": "Sequence",
+    "name": "sequence",
+    "variableName": "#sequence#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#Sequence.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

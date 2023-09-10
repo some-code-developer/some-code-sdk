@@ -1,0 +1,33 @@
+[
+  {
+    "label": "Loop Data",
+    "name": "data",
+    "variableName": "#data#",
+    "propertytype": "text",
+    "required": true
+  },
+  {
+    "label": "Loop Index",
+    "name": "index",
+    "variableName": "#index#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Loop Value",
+    "name": "value",
+    "variableName": "#value#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Count of Loop Values",
+    "name": "valuesCount",
+    "variableName": "#valuesCount#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#Loop.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "label": "Folder Name",
+    "name": "folder",
+    "variableName": "#CreateFolder.Folder#",
+    "propertytype": "foldername",
+    "showhintchecked": true,
+    "hint": "Folder to Create",
+    "minchecked": true,
+    "min": "1",
+    "required": true
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#CreateFolder.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false
+  }
+]

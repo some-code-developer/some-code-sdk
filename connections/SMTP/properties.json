@@ -1,0 +1,32 @@
+[
+  {
+    "label": "Host",
+    "name": "host",
+    "propertytype": "text",
+    "required": true
+  },
+  {
+    "label": "Port",
+    "name": "port",
+    "propertytype": "number",
+    "required": true
+  },
+  {
+    "label": "User",
+    "name": "user",
+    "propertytype": "text",
+    "required": true
+  },
+  {
+    "label": "Password",
+    "name": "password",
+    "propertytype": "password",
+    "required": true
+  },
+  {
+    "label": "Use TLS",
+    "name": "usetls",
+    "propertytype": "checkbox",
+    "required": false
+  }
+]

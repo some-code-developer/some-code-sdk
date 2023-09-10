@@ -1,0 +1,33 @@
+[
+  {
+    "label": "Connection",
+    "name": "connection",
+    "variableName": "#connection#",
+    "propertytype": "connection",
+    "required": false,
+    "connection_type": "FTP",
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Folder",
+    "name": "folder",
+    "variableName": "#folder#",
+    "propertytype": "text",
+    "hasdefault": true,
+    "required": true,
+    "default": "/"
+  },
+  {
+    "label": "List",
+    "name": "list",
+    "variableName": "#list#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#FtpList.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

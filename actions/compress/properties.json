@@ -1,0 +1,29 @@
+[
+  {
+    "label": "Path",
+    "name": "path",
+    "variableName": "#path#",
+    "propertytype": "filename",
+    "showhintchecked": false,
+    "required": true
+  },
+  {
+    "label": "File",
+    "name": "file",
+    "variableName": "#file#",
+    "propertytype": "filename",
+    "required": true
+  },
+  {
+    "label": "Password",
+    "name": "password",
+    "variableName": "#password#",
+    "propertytype": "password"
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#Compress.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

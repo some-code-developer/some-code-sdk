@@ -1,0 +1,38 @@
+[
+  {
+    "label": "File Name",
+    "name": "file",
+    "variableName": "#file#",
+    "propertytype": "filename",
+    "showhintchecked": true,
+    "hint": "File Name",
+    "minchecked": true,
+    "min": "1",
+    "required": true
+  },
+  {
+    "label": "Sheet Name",
+    "name": "sheet",
+    "variableName": "#sheet#",
+    "propertytype": "text",
+    "showhintchecked": true,
+    "hint": "Sheet Name",
+    "minchecked": true,
+    "min": "1",
+    "required": true
+  },
+  {
+    "label": "Data",
+    "name": "data",
+    "variableName": "#data#",
+    "propertytype": "variable",
+    "required": false
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#ListFile.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false
+  }
+]

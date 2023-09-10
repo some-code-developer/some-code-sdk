@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Source File",
+    "name": "source",
+    "variableName": "#source#",
+    "propertytype": "filename",
+    "showhintchecked": true,
+    "hint": "Source File",
+    "required": true
+  },
+  {
+    "label": "Target Folder",
+    "name": "target",
+    "variableName": "#target#",
+    "propertytype": "foldername",
+    "showhintchecked": true,
+    "hint": "Target Folder",
+    "required": true
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#CopyFile.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

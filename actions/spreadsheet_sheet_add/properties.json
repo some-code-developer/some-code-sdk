@@ -1,0 +1,27 @@
+[
+  {
+    "label": "File Name",
+    "name": "file",
+    "variableName": "#file#",
+    "propertytype": "filename",
+    "showhintchecked": true,
+    "hint": "File(s) to list",
+    "minchecked": true,
+    "min": "1",
+    "required": true
+  },
+  {
+    "label": "Files",
+    "name": "files",
+    "variableName": "#files#",
+    "propertytype": "variable",
+    "required": false
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#ListFile.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false
+  }
+]

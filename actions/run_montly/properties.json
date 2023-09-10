@@ -1,0 +1,238 @@
+[
+  {
+    "label": "Start Date Time",
+    "name": "startAt",
+    "variableName": "#startAt#",
+    "propertytype": "datetime-local",
+    "required": true
+  },
+  {
+    "label": "Execute on specific day of the month",
+    "name": "monthlyType",
+    "variableName": "#monthlyType#",
+    "propertytype": "checkbox",
+    "required": false,
+    "hasdefault": true,
+    "default": "true",
+    "showhintchecked": true,
+    "hint": "When selected Day No of The Month is used otherwise Day No and Week Day are used"
+  },
+  {
+    "label": "Day No of The Month",
+    "name": "monthDayNo",
+    "variableName": "#monthDayNo#",
+    "propertytype": "number",
+    "minchecked": true,
+    "min": "1",
+    "maxchecked": true,
+    "max": "31",
+    "required": true,
+    "hasdefault": true,
+    "default": "1"
+  },
+  {
+    "label": "Day No",
+    "name": "dayNo",
+    "variableName": "#dayNo#",
+    "propertytype": "select",
+    "keys": "1\n2\n3\n4\n5",
+    "values": "First\nSecond\nThird\nFourth\nLast",
+    "hasdefault": true,
+    "default": "1"
+  },
+  {
+    "label": "Week Day",
+    "name": "weekDay",
+    "variableName": "#weekDay#",
+    "propertytype": "select",
+    "keys": "1\n2\n3\n4\n5\n6\n7\n8",
+    "values": "Monday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\nSunday\nDay"
+  },
+  {
+    "label": "January",
+    "name": "jan",
+    "variableName": "#jan#",
+    "propertytype": "checkbox",
+    "required": false,
+    "hasdefault": true,
+    "default": "true"
+  },
+  {
+    "label": "February",
+    "name": "feb",
+    "variableName": "#feb#",
+    "propertytype": "checkbox",
+    "required": false,
+    "hasdefault": true,
+    "default": "true"
+  },
+  {
+    "label": "March",
+    "name": "mar",
+    "variableName": "#mar#",
+    "propertytype": "checkbox",
+    "required": false,
+    "hasdefault": true,
+    "default": "true"
+  },
+  {
+    "label": "April",
+    "name": "apr",
+    "variableName": "#apr#",
+    "propertytype": "checkbox",
+    "required": false,
+    "hasdefault": true,
+    "default": "true"
+  },
+  {
+    "label": "May",
+    "name": "may",
+    "variableName": "#may#",
+    "propertytype": "checkbox",
+    "required": false,
+    "hasdefault": true,
+    "default": "true"
+  },
+  {
+    "label": "June",
+    "name": "jun",
+    "variableName": "#jun#",
+    "propertytype": "checkbox",
+    "required": false,
+    "hasdefault": true,
+    "default": "true"
+  },
+  {
+    "label": "July",
+    "name": "jul",
+    "variableName": "#jul#",
+    "propertytype": "checkbox",
+    "required": false,
+    "hasdefault": true,
+    "default": "true"
+  },
+  {
+    "label": "August",
+    "name": "aug",
+    "variableName": "#aug#",
+    "propertytype": "checkbox",
+    "required": false,
+    "hasdefault": true,
+    "default": "true"
+  },
+  {
+    "label": "September",
+    "name": "sep",
+    "variableName": "#sep#",
+    "propertytype": "checkbox",
+    "required": false,
+    "hasdefault": true,
+    "default": "true"
+  },
+  {
+    "label": "October",
+    "name": "oct",
+    "variableName": "#oct#",
+    "propertytype": "checkbox",
+    "required": false,
+    "hasdefault": true,
+    "default": "true"
+  },
+  {
+    "label": "November",
+    "name": "nov",
+    "variableName": "#nov#",
+    "propertytype": "checkbox",
+    "required": false,
+    "hasdefault": true,
+    "default": "true"
+  },
+  {
+    "label": "December",
+    "name": "dec",
+    "variableName": "#dec#",
+    "propertytype": "checkbox",
+    "required": false,
+    "hasdefault": true,
+    "default": "true"
+  },
+  {
+    "label": "Repeat Type",
+    "name": "repeatType",
+    "variableName": "#repeatType#",
+    "propertytype": "select",
+    "keys": "0\n1\n2",
+    "values": "Do not repeat\nEvery Minute\nEvery Hour",
+    "required": true,
+    "hasdefault": true,
+    "default": "0"
+  },
+  {
+    "label": "Repeat Every",
+    "name": "repeatEvery",
+    "variableName": "#repeatEvery#",
+    "propertytype": "number",
+    "hasdefault": true,
+    "default": "1",
+    "minchecked": true,
+    "min": "1",
+    "required": true
+  },
+  {
+    "label": "From",
+    "name": "repeatStart",
+    "variableName": "#repeatStart#",
+    "propertytype": "time",
+    "hint": "From Time",
+    "hasdefault": true,
+    "default": "00:00",
+    "required": true
+  },
+  {
+    "label": "To",
+    "name": "repeatUntil",
+    "variableName": "#repeatUntil#",
+    "propertytype": "time",
+    "showhintchecked": true,
+    "hint": "Till Time",
+    "required": true,
+    "hasdefault": true,
+    "default": "23:59"
+  },
+  {
+    "label": "Use End Date",
+    "name": "useEndDate",
+    "variableName": "#useEndDate#",
+    "propertytype": "checkbox",
+    "hasdefault": true,
+    "default": "0",
+    "keys": "",
+    "values": "",
+    "required": false
+  },
+  {
+    "label": "End Date",
+    "name": "endDate",
+    "variableName": "#endDate#",
+    "propertytype": "date",
+    "hasdefault": false
+  },
+  {
+    "label": "Wait",
+    "name": "wait",
+    "variableName": "#wait#",
+    "propertytype": "checkbox",
+    "required": false,
+    "hasdefault": true,
+    "default": "true",
+    "showhintchecked": true,
+    "hint": "When selected action will wait until until excution date time otherwise it will immediately fail"
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#RunMothly.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false
+  }
+]

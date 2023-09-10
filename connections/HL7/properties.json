@@ -1,0 +1,9 @@
+[
+  {
+    "label": "Port",
+    "name": "port",
+    "propertytype": "number",
+    "hasdefault": true,
+    "default": "7777"
+  }
+]

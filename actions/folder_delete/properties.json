@@ -1,0 +1,29 @@
+[
+  {
+    "label": "Folder Name",
+    "name": "folder",
+    "variableName": "#folder#",
+    "propertytype": "foldername",
+    "showhintchecked": true,
+    "hint": "Folder to delete",
+    "minchecked": true,
+    "min": "1",
+    "required": true
+  },
+  {
+    "label": "Recursive",
+    "name": "recursive",
+    "variableName": "#recursive#",
+    "propertytype": "checkbox",
+    "hasdefault": true,
+    "default": "true",
+    "required": false
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#DeleteFolder.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false
+  }
+]

@@ -1,0 +1,9 @@
+[
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#ClearLog.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false
+  }
+]

@@ -1,0 +1,83 @@
+[
+  {
+    "label": "Enabled",
+    "name": "enabled",
+    "variableName": "#enabled#",
+    "propertytype": "checkbox",
+    "static": true,
+    "required": false,
+    "response": false
+  },
+  {
+    "label": "Connection",
+    "name": "connection",
+    "variableName": "#connection#",
+    "propertytype": "connection",
+    "required": false,
+    "response": false,
+    "connection_type": "RabbitMQ",
+    "static": true
+  },
+  {
+    "label": "Queue",
+    "name": "queue",
+    "variableName": "#queue#",
+    "propertytype": "text",
+    "required": false,
+    "static": true,
+    "response": false
+  },
+  {
+    "label": "Passive",
+    "name": "passive",
+    "variableName": "#passive#",
+    "propertytype": "checkbox",
+    "required": false,
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Exclusive",
+    "name": "exclusive",
+    "variableName": "#exclusive#",
+    "propertytype": "checkbox",
+    "required": false,
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Auto Delete",
+    "name": "autoDelete",
+    "variableName": "#autoDelete#",
+    "propertytype": "checkbox",
+    "required": false,
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "No Declare",
+    "name": "noDeclare",
+    "variableName": "#noDeclare#",
+    "propertytype": "checkbox",
+    "required": false,
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Durable",
+    "name": "durable",
+    "variableName": "#durable#",
+    "propertytype": "checkbox",
+    "required": false,
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Hook Data",
+    "name": "hookData",
+    "variableName": "#RabbitMQHook.hookData#",
+    "propertytype": "variable",
+    "required": false,
+    "response": false
+  }
+]

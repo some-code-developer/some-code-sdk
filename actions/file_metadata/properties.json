@@ -1,0 +1,27 @@
+[
+  {
+    "label": "File Name",
+    "name": "file",
+    "variableName": "#file#",
+    "propertytype": "filename",
+    "showhintchecked": true,
+    "hint": "File Name",
+    "minchecked": true,
+    "min": "1",
+    "required": true
+  },
+  {
+    "label": "File Meta Data",
+    "name": "metaData",
+    "variableName": "#metaData#",
+    "propertytype": "variable",
+    "required": false
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#FileMetadata.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false
+  }
+]

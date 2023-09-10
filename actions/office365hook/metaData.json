@@ -1,0 +1,12 @@
+{
+  "enabled": true,
+  "name": "Office 365 Email Hook",
+  "description": "Office 365 Email Hook",
+  "version": "1.0.0.0",
+  "notes": "",
+  "action_type": "Office365Hook",
+  "created_by": "John Smith",
+  "created_at": "2023-06-11 08:04:49",
+  "updated_by": "John Smith",
+  "updated_at": "2023-07-23 11:33:04"
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "label": "Script",
+    "name": "Script",
+    "variableName": "#Script.Script#",
+    "propertytype": "script",
+    "hasdefault": true,
+    "default": "return 'Success'",
+    "required": true
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#Script.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false
+  }
+]

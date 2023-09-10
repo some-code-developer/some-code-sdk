@@ -1,0 +1,8 @@
+[
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#Beep.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

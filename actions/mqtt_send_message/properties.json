@@ -1,0 +1,36 @@
+[
+  {
+    "label": "Connection",
+    "name": "connection",
+    "variableName": "#connection#",
+    "propertytype": "connection",
+    "required": true,
+    "response": false,
+    "connection_type": "MQTT",
+    "static": true
+  },
+  {
+    "label": "Topic",
+    "name": "topic",
+    "variableName": "#topic#",
+    "propertytype": "text",
+    "required": true,
+    "response": false,
+    "static": false
+  },
+  {
+    "label": "Message",
+    "name": "message",
+    "variableName": "#message#",
+    "propertytype": "textarea",
+    "required": true,
+    "response": false,
+    "static": false
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#MQTTSendMessage.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

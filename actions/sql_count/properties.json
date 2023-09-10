@@ -1,0 +1,56 @@
+[
+  {
+    "label": "Connection",
+    "name": "connection",
+    "variableName": "#connection#",
+    "propertytype": "connection",
+    "required": true,
+    "connection_type": "Database",
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Replace Variables Inside SQL",
+    "name": "replaceVariables",
+    "variableName": "#replaceVariables#",
+    "propertytype": "checkbox",
+    "hasdefault": true,
+    "default": "true",
+    "required": false,
+    "response": false
+  },
+  {
+    "label": "SQL",
+    "name": "sql",
+    "variableName": "#sql#",
+    "propertytype": "textarea",
+    "hasdefault": true,
+    "default": "select count(*) as countvalue from table",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#SqlCount.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false,
+    "response": false
+  },
+  {
+    "label": "Count",
+    "name": "count",
+    "variableName": "#count#",
+    "propertytype": "variable",
+    "required": false,
+    "response": false
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#SqlCheck.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false,
+    "response": false
+  }
+]

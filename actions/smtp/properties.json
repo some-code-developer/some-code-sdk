@@ -1,0 +1,118 @@
+[
+  {
+    "label": "Connection",
+    "name": "connection",
+    "variableName": "#connection#",
+    "propertytype": "connection",
+    "required": false,
+    "connection_type": "SMTP",
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "From",
+    "name": "from",
+    "variableName": "#from#",
+    "propertytype": "email",
+    "hasdefault": false,
+    "default": "",
+    "required": false,
+    "response": false
+  },
+  {
+    "label": "Sender",
+    "name": "sender",
+    "variableName": "#sender#",
+    "propertytype": "text",
+    "keys": "1\n2\n3",
+    "values": "One\nTwo\nThre",
+    "hasdefault": false,
+    "default": "",
+    "required": false,
+    "response": false
+  },
+  {
+    "label": "To",
+    "name": "to",
+    "variableName": "#to#",
+    "propertytype": "text",
+    "required": false,
+    "showhintchecked": true,
+    "placeholderchecked": true,
+    "hint": "foobar@example.com, \"John Smith\" <John.Smith@example.com>, \"Name, User\" <info@example.com>",
+    "placeholder": "foobar@example.com, \"John Smith\" <John.Smith@example.com>, \"Name, User\" <info@example.com>",
+    "response": false
+  },
+  {
+    "label": "CC",
+    "name": "cc",
+    "variableName": "#cc#",
+    "propertytype": "text",
+    "required": false,
+    "response": false
+  },
+  {
+    "label": "BCC",
+    "name": "bcc",
+    "variableName": "#bcc#",
+    "propertytype": "text",
+    "required": false,
+    "response": false
+  },
+  {
+    "label": "Reply To",
+    "name": "replyTo",
+    "variableName": "#replyTo#",
+    "propertytype": "text",
+    "required": false,
+    "response": false
+  },
+  {
+    "label": "Subject",
+    "name": "subject",
+    "variableName": "#subject#",
+    "propertytype": "text",
+    "required": false,
+    "response": false
+  },
+  {
+    "label": "Message",
+    "name": "message",
+    "variableName": "#message#",
+    "propertytype": "editor",
+    "required": false,
+    "response": false
+  },
+  {
+    "label": "Replace Variables Inside Message",
+    "name": "replaceVariables",
+    "variableName": "#replaceVariables#",
+    "propertytype": "checkbox",
+    "hasdefault": true,
+    "default": "true",
+    "required": false,
+    "response": false
+  },
+  {
+    "label": "Attachments",
+    "name": "attachments",
+    "variableName": "#attachments#",
+    "propertytype": "filename",
+    "hasdefault": false,
+    "default": "",
+    "showhintchecked": true,
+    "hint": "JSON Array list of files",
+    "placeholderchecked": false,
+    "placeholder": "",
+    "required": false,
+    "response": false
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#SMTP.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false,
+    "response": false
+  }
+]

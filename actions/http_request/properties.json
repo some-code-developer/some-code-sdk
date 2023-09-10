@@ -1,0 +1,131 @@
+[
+  {
+    "label": "Method",
+    "name": "method",
+    "variableName": "#method#",
+    "propertytype": "select",
+    "keys": "GET\nPOST\nDELETE\nPATCH\nPUT\nPUT",
+    "values": "GET\nPOST\nDELETE\nPATCH\nPUT\nPUT",
+    "hasdefault": true,
+    "default": "GET",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Url",
+    "name": "url",
+    "variableName": "#url#",
+    "propertytype": "text",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Add Query parameters",
+    "name": "addQuery",
+    "variableName": "#addQuery#",
+    "propertytype": "checkbox",
+    "hasdefault": true,
+    "default": "false",
+    "required": false
+  },
+  {
+    "label": "Query",
+    "name": "query",
+    "variableName": "#query#",
+    "propertytype": "text",
+    "required": false,
+    "response": false
+  },
+  {
+    "label": "Add Header",
+    "name": "addHeader",
+    "variableName": "#addHeader#",
+    "propertytype": "checkbox",
+    "hasdefault": true,
+    "default": "false",
+    "required": false
+  },
+  {
+    "label": "Header",
+    "name": "header",
+    "variableName": "#header#",
+    "propertytype": "text",
+    "required": false,
+    "response": false
+  },
+  {
+    "label": "Add Body",
+    "name": "addBody",
+    "variableName": "#addBody#",
+    "propertytype": "checkbox",
+    "hasdefault": true,
+    "default": "false",
+    "required": false
+  },
+  {
+    "label": "Body",
+    "name": "body",
+    "variableName": "#body#",
+    "propertytype": "text",
+    "required": false,
+    "response": false
+  },
+  {
+    "label": "Response Status",
+    "name": "responseStatus",
+    "variableName": "#responseStatus#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Response Status Text",
+    "name": "responseStatusText",
+    "variableName": "#responseStatusText#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Response Header",
+    "name": "responseHeader",
+    "variableName": "#responseHeader#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Responce Type",
+    "name": "responseType",
+    "variableName": "#responseType#",
+    "propertytype": "select",
+    "keys": "JSON\nTEXT\nBINARY",
+    "values": "JSON\nTEXT\nBINARY",
+    "hasdefault": true,
+    "default": "JSON",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Response Body",
+    "name": "responseBody",
+    "variableName": "#responseBody#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Save Response Into The File",
+    "name": "responseFileSave",
+    "variableName": "#responseFileSave#",
+    "propertytype": "checkbox",
+    "hasdefault": true,
+    "default": "false",
+    "required": false
+  },
+  {
+    "label": "Response File Name",
+    "name": "responseFile",
+    "variableName": "#responseFile#",
+    "propertytype": "filename",
+    "required": false
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#HttpRequest.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

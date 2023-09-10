@@ -1,0 +1,38 @@
+[
+  {
+    "label": "Enabled",
+    "name": "enabled",
+    "variableName": "#enabled#",
+    "propertytype": "checkbox",
+    "required": false,
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Connection",
+    "name": "connection",
+    "variableName": "#connection#",
+    "propertytype": "connection",
+    "required": false,
+    "response": false,
+    "connection_type": "KAFKA",
+    "static": true
+  },
+  {
+    "label": "Topic",
+    "name": "topic",
+    "variableName": "#topic#",
+    "propertytype": "text",
+    "required": false,
+    "static": true,
+    "response": false
+  },
+  {
+    "label": "Hook Data",
+    "name": "hookData",
+    "variableName": "#ApacheKafkaHook.hookData#",
+    "propertytype": "variable",
+    "required": false,
+    "response": false
+  }
+]

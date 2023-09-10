@@ -1,0 +1,38 @@
+[
+  {
+    "label": "Enabled",
+    "name": "enabled",
+    "variableName": "#enabled#",
+    "propertytype": "checkbox",
+    "required": false,
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Connection",
+    "name": "connection",
+    "variableName": "#connection#",
+    "propertytype": "connection",
+    "required": false,
+    "response": false,
+    "connection_type": "MQTT",
+    "static": true
+  },
+  {
+    "label": "Topic",
+    "name": "topic",
+    "variableName": "#topic#",
+    "propertytype": "text",
+    "required": false,
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Hook Data",
+    "name": "hookData",
+    "variableName": "#MQTTHook.hookData#",
+    "propertytype": "variable",
+    "required": false,
+    "response": false
+  }
+]

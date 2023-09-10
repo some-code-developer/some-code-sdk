@@ -1,0 +1,27 @@
+[
+  {
+    "label": "Connection",
+    "name": "connection",
+    "variableName": "#connection#",
+    "propertytype": "connection",
+    "required": false,
+    "connection_type": "FTP",
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "File",
+    "name": "file",
+    "variableName": "#file#",
+    "propertytype": "text",
+    "required": true,
+    "hasdefault": true,
+    "default": "/"
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#FtpCheckFile.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

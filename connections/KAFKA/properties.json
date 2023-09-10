@@ -1,0 +1,18 @@
+[
+  {
+    "label": "Host",
+    "name": "host",
+    "propertytype": "text",
+    "required": true,
+    "showhintchecked": true,
+    "hint": "IP Address or Computer Name"
+  },
+  {
+    "label": "Port",
+    "name": "port",
+    "propertytype": "number",
+    "hasdefault": true,
+    "default": "9092",
+    "required": true
+  }
+]

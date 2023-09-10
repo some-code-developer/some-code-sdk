@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="16"
+   height="16"
+   fill="currentColor"
+   class="bi bi-tablet"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="ftp_list.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="39.25"
+     inkscape:cx="8"
+     inkscape:cy="8"
+     inkscape:window-width="3840"
+     inkscape:window-height="2479"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg6" />
+  <path
+     d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"
+     id="path2" />
+  <path
+     fill-rule="evenodd"
+     d="m 6.5493223,13.213565 a 0.27928428,0.31352801 0 0 1 0.2792842,-0.313528 h 5.0271175 a 0.27928428,0.31352801 0 0 1 0,0.627056 H 6.8286065 A 0.27928428,0.31352801 0 0 1 6.5493223,13.213565 Z m 0,-2.508224 a 0.27928428,0.31352801 0 0 1 0.2792842,-0.313528 h 5.0271175 a 0.27928428,0.31352801 0 0 1 0,0.627056 H 6.8286065 A 0.27928428,0.31352801 0 0 1 6.5493223,10.705341 Z m 0,-2.5082245 a 0.27928428,0.31352801 0 0 1 0.2792842,-0.313528 h 5.0271175 a 0.27928428,0.31352801 0 0 1 0,0.627056 H 6.8286065 A 0.27928428,0.31352801 0 0 1 6.5493223,8.1971165 Z M 5.9092027,7.3480826 a 0.27928428,0.31352801 0 0 1 0,0.4439557 l -0.8378529,0.940584 a 0.27928428,0.31352801 0 0 1 -0.3954665,0 L 4.396599,8.4190943 A 0.27963708,0.31392405 0 1 1 4.7920655,7.9751387 l 0.081551,0.092177 0.6401195,-0.7192333 a 0.27928428,0.31352801 0 0 1 0.3954667,2e-7 z m 0,2.5082241 a 0.27928428,0.31352801 0 0 1 0,0.4439553 l -0.8378529,0.940584 a 0.27928428,0.31352801 0 0 1 -0.3954665,0 L 4.396599,10.927318 a 0.27963708,0.31392405 0 1 1 0.3954665,-0.443955 l 0.081551,0.09218 0.6401195,-0.7192335 a 0.27928428,0.31352801 0 0 1 0.3954667,2e-7 z m 0,2.5082233 a 0.27928428,0.31352801 0 0 1 0,0.443956 L 5.0713498,13.74907 a 0.27928428,0.31352801 0 0 1 -0.3954665,0 L 4.396599,13.435542 a 0.27963708,0.31392405 0 0 1 0.3954665,-0.443955 l 0.081551,0.09218 0.6401195,-0.719234 a 0.27928428,0.31352801 0 0 1 0.3954667,0 z"
+     id="path2-2"
+     style="stroke-width:0.591822" />
+  <text
+     xml:space="preserve"
+     style="font-size:5.21495px;line-height:1.25;font-family:sans-serif;stroke-width:0.977807"
+     x="4.0621319"
+     y="5.7667565"
+     id="text12062"
+     transform="scale(0.94038311,1.0633964)"><tspan
+       sodipodi:role="line"
+       id="tspan12060"
+       x="4.0621319"
+       y="5.7667565"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.977807">FTP</tspan></text>
+</svg>

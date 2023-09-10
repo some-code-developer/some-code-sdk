@@ -1,0 +1,62 @@
+[
+  {
+    "label": "Enabled",
+    "name": "enabled",
+    "variableName": "#enabled#",
+    "propertytype": "checkbox",
+    "required": false,
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Method",
+    "name": "method",
+    "variableName": "#method#",
+    "propertytype": "select",
+    "keys": "GET\nPOST\nDELETE\nPATCH\nPUT\nPUT",
+    "values": "GET\nPOST\nDELETE\nPATCH\nPUT\nPUT",
+    "hasdefault": true,
+    "default": "GET",
+    "static": true,
+    "required": false,
+    "response": false
+  },
+  {
+    "label": "Url",
+    "name": "url",
+    "variableName": "#url#",
+    "propertytype": "text",
+    "required": false,
+    "static": true,
+    "response": false,
+    "showhintchecked": true,
+    "hint": "the Url for testing is host:port/api/webhooks/URL"
+  },
+  {
+    "label": "Response Data",
+    "name": "response_data",
+    "variableName": "#response_data#",
+    "propertytype": "text",
+    "response": true,
+    "required": false
+  },
+  {
+    "label": "Response Code",
+    "name": "response_code",
+    "variableName": "#response_code#",
+    "propertytype": "text",
+    "hasdefault": true,
+    "default": "200",
+    "response": true,
+    "required": false,
+    "static": false
+  },
+  {
+    "label": "Request",
+    "name": "hookData",
+    "variableName": "#WebHook.Request#",
+    "propertytype": "variable",
+    "required": false,
+    "response": false
+  }
+]

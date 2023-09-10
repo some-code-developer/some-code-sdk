@@ -1,0 +1,34 @@
+[
+  {
+    "label": "Host",
+    "name": "host",
+    "propertytype": "text",
+    "required": true
+  },
+  {
+    "label": "Port",
+    "name": "port",
+    "propertytype": "number",
+    "hasdefault": true,
+    "default": "21",
+    "required": true
+  },
+  {
+    "label": "User",
+    "name": "user",
+    "propertytype": "text",
+    "required": true
+  },
+  {
+    "label": "Password",
+    "name": "password",
+    "propertytype": "password",
+    "hasdefault": false
+  },
+  {
+    "label": "Secure",
+    "name": "secure",
+    "propertytype": "checkbox",
+    "required": false
+  }
+]

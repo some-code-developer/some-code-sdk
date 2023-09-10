@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="-7.5 0 5.42 5.42"
+   preserveAspectRatio="xMidYMid"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="rabbitmq.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="25.12"
+     inkscape:cx="41.003185"
+     inkscape:cy="31.170382"
+     inkscape:window-width="3840"
+     inkscape:window-height="2479"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <path
+     d="M -2.3308302,2.1800069 H -4.1039251 A 0.16124351,0.15323107 0 0 1 -4.2651061,2.0268552 V 0.27077728 c 0,-0.13004244 -0.110962,-0.23552989 -0.2477415,-0.23552989 h -0.6329505 c -0.1368632,0 -0.2477624,0.10548745 -0.2477624,0.23552989 V 2.0162213 c 0,0.090556 -0.077037,0.1641621 -0.1723292,0.164558 l -0.5810642,0.00264 c -0.096105,4.914e-4 -0.1741839,-0.07361 -0.1739964,-0.1648588 l 0.0036,-1.74738457 C -6.3170362,0.14093285 -6.4280398,0.03524739 -6.5650904,0.03524739 H -7.19752 c -0.136884,0 -0.2477624,0.10548745 -0.2477624,0.23552989 V 5.1880331 c 0,0.1155268 0.09848,0.2091133 0.2199439,0.2091133 h 4.8945048 c 0.1215684,0 0.220048,-0.093587 0.220048,-0.2091133 V 2.3891205 c 0,-0.1155268 -0.09848,-0.2091136 -0.220048,-0.2091136 z m -0.831473,1.8462383 c 0,0.1513896 -0.129153,0.2741448 -0.2884585,0.2741448 h -0.5002135 c -0.1593262,0 -0.2884795,-0.1227552 -0.2884795,-0.2741448 V 3.5508885 c 0,-0.1514093 0.1291533,-0.2741448 0.2884795,-0.2741448 h 0.5002135 c 0.1593055,0 0.2884585,0.1227355 0.2884585,0.2741448 z"
+     fill="#ff6600"
+     id="path2"
+     style="stroke-width:0.0203136" />
+</svg>

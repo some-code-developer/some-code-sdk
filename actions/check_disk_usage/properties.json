@@ -1,0 +1,54 @@
+[
+  {
+    "label": "Drive Path",
+    "name": "DrivePath",
+    "variableName": "#CheckDiskUsage.DrivePath#",
+    "propertytype": "text",
+    "showhintchecked": true,
+    "hint": "Drive Path  C:  or /mnt/drive1",
+    "minchecked": true,
+    "min": "1",
+    "required": true
+  },
+  {
+    "label": "Usage (Mbs)",
+    "name": "UsageToCheck",
+    "variableName": "#CheckDiskUsage.UsageToCheck#",
+    "propertytype": "number",
+    "hasdefault": true,
+    "default": "1",
+    "showhintchecked": true,
+    "minchecked": true,
+    "min": "1",
+    "hint": "Usage in megabytes",
+    "required": true
+  },
+  {
+    "label": "Disk Size (MB)",
+    "name": "Size",
+    "variableName": "#CheckDiskUsage.Size#",
+    "propertytype": "variable",
+    "required": false
+  },
+  {
+    "label": "Usage (MB)",
+    "name": "Usage",
+    "variableName": "#CheckDiskUsage.Usage#",
+    "propertytype": "variable",
+    "required": false
+  },
+  {
+    "label": "Free Space (Actual,MB)",
+    "name": "Free",
+    "variableName": "#CheckDiskUsage.Free#",
+    "propertytype": "variable",
+    "required": false
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#CheckDiskUsage.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false
+  }
+]

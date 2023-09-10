@@ -1,0 +1,265 @@
+[
+  {
+    "label": "Connection",
+    "name": "connection",
+    "variableName": "#connection#",
+    "propertytype": "connection",
+    "required": true,
+    "connection_type": "IMAP4",
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Mail Box",
+    "name": "box",
+    "variableName": "#box#",
+    "propertytype": "text",
+    "hasdefault": true,
+    "default": "INBOX",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "What",
+    "name": "what",
+    "variableName": "#what#",
+    "propertytype": "select",
+    "required": true,
+    "keys": "ALL\nANSWERED\nDELETED\nDRAFT\nFLAGGED\nNEW\nSEEN\nRECENT\nOLD\nUNANSWERED\nUNDELETED\nUNDRAFT\nUNFLAGGED\nUNSEEN",
+    "values": "ALL - All messages.\nANSWERED - Messages with the Answered flag set.\nDELETED - Messages with the Deleted flag set.\nDRAFT - Messages with the Draft flag set.\nFLAGGED - Messages with the Flagged flag set.\nNEW - Messages that have the Recent flag set but not the Seen flag.\nSEEN - Messages that have the Seen flag set.\nRECENT - Messages that have the Recent flag set.\nOLD - Messages that do not have the Recent flag set.\nUNANSWERED - Messages that do not have the Answered flag set.\nUNDELETED - Messages that do not have the Deleted flag set.\nUNDRAFT - Messages that do not have the Draft flag set.\nUNFLAGGED - Messages that do not have the Flagged flag set.\nUNSEEN - Messages that do not have the Seen flag set.",
+    "hasdefault": true,
+    "default": "ALL"
+  },
+  {
+    "label": "Check Max Messages",
+    "name": "checkMaxMessages",
+    "variableName": "#checkMaxMessages#",
+    "propertytype": "checkbox",
+    "showhintchecked": true,
+    "hint": "Restrict number of messages to process",
+    "hasdefault": true,
+    "default": "true",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Max Messages",
+    "name": "maxMessages",
+    "variableName": "#maxMessages#",
+    "propertytype": "numeric",
+    "showhintchecked": true,
+    "hint": "Max messages to process",
+    "hasdefault": true,
+    "default": "1",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Check Sender",
+    "name": "checkSender",
+    "variableName": "#checkSender#",
+    "propertytype": "checkbox",
+    "hasdefault": true,
+    "default": "false",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Sender Regx",
+    "name": "senderRegx",
+    "variableName": "#senderRegx#",
+    "propertytype": "textarea",
+    "response": false
+  },
+  {
+    "label": "Check Subject",
+    "name": "checkSubject",
+    "variableName": "#checkSubject#",
+    "propertytype": "checkbox",
+    "hasdefault": true,
+    "default": "false",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Subject Regx",
+    "name": "subjectRegx",
+    "variableName": "#subjectRegx#",
+    "propertytype": "textarea",
+    "response": false
+  },
+  {
+    "label": "Check Recipient",
+    "name": "checkRecipient",
+    "variableName": "#checkRecipient#",
+    "propertytype": "checkbox",
+    "hasdefault": true,
+    "default": "false",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Recipient Regx",
+    "name": "recipientRegx",
+    "variableName": "#recipientRegx#",
+    "propertytype": "textarea",
+    "response": false
+  },
+  {
+    "label": "Check Attachments",
+    "name": "checkAttachment",
+    "variableName": "#checkAttachment#",
+    "propertytype": "checkbox",
+    "hasdefault": true,
+    "default": "false",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Attachment Regx",
+    "name": "attachmentRegx",
+    "variableName": "#attachmentRegx#",
+    "propertytype": "textarea",
+    "response": false
+  },
+  {
+    "label": "Save Messages",
+    "name": "saveMessages",
+    "variableName": "#saveMessages#",
+    "propertytype": "checkbox",
+    "hasdefault": true,
+    "default": "false",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Message Folder",
+    "name": "messageFolder",
+    "variableName": "#messageFolder#",
+    "propertytype": "foldername",
+    "hasdefault": true,
+    "default": "/",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Save Attachments",
+    "name": "saveAttachments",
+    "variableName": "#saveAttachments#",
+    "propertytype": "checkbox",
+    "hasdefault": true,
+    "default": "false",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Attachment Folder",
+    "name": "attachmentFolder",
+    "variableName": "#attachmentFolder#",
+    "propertytype": "foldername",
+    "hasdefault": true,
+    "default": "/",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Check Attachment while saving",
+    "name": "saveAttachmentUseRegEx",
+    "variableName": "#saveAttachmentUseRegEx#",
+    "propertytype": "checkbox",
+    "hasdefault": true,
+    "default": "false",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Save Attachment Regx",
+    "name": "saveAttachmentRegEx",
+    "variableName": "#saveAttachmentRegEx#",
+    "propertytype": "textarea",
+    "response": false
+  },
+  {
+    "label": "On Completion Action",
+    "name": "action",
+    "variableName": "#action#",
+    "propertytype": "select",
+    "required": true,
+    "keys": "DN\nMAR\nDM\nMTF",
+    "values": "Do Nothing\nMark As Read\nDelete Message\nMove To Folder",
+    "hasdefault": true,
+    "default": "DN"
+  },
+  {
+    "label": "Move To Folder",
+    "name": "actionBox",
+    "variableName": "#actionBox#",
+    "propertytype": "textarea",
+    "hasdefault": true,
+    "default": "/",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Message Id",
+    "name": "messageId",
+    "variableName": "#messageId#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "SEQ",
+    "name": "seq",
+    "variableName": "#seq#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "UID",
+    "name": "uid",
+    "variableName": "#uid#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Body",
+    "name": "body",
+    "variableName": "#body#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Recipient",
+    "name": "recipient",
+    "variableName": "#recipient#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Sender",
+    "name": "sender",
+    "variableName": "#sender#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Date",
+    "name": "date",
+    "variableName": "#date#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "AttachmentsCount",
+    "name": "attachmentsCount",
+    "variableName": "#attachmentsCount#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Subject",
+    "name": "subject",
+    "variableName": "#subject#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#Imap4MailBoxes.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false,
+    "response": false
+  }
+]

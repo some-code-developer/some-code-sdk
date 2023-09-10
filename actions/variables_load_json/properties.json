@@ -1,0 +1,22 @@
+[
+  {
+    "label": "File Name",
+    "name": "file",
+    "variableName": "#file#",
+    "propertytype": "filename",
+    "showhintchecked": true,
+    "hint": "JSON File Name to load variables from",
+    "minchecked": true,
+    "min": "1",
+    "hasdefault": true,
+    "default": "variables.json",
+    "required": true
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#LoadVariables.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false
+  }
+]

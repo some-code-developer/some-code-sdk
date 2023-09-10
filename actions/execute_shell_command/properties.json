@@ -1,0 +1,39 @@
+[
+  {
+    "label": "Shell Command",
+    "name": "file",
+    "variableName": "#file#",
+    "propertytype": "filename",
+    "required": true
+  },
+  {
+    "label": "Parameters",
+    "name": "parameters",
+    "variableName": "#parameters#",
+    "propertytype": "text"
+  },
+  {
+    "label": "Timeout",
+    "name": "timeout",
+    "variableName": "#timeout#",
+    "propertytype": "number",
+    "hint": "Timeout Milliseconds (0 = Unlimited)",
+    "minchecked": true,
+    "showhintchecked": true,
+    "min": "0",
+    "hasdefault": true,
+    "default": 0
+  },
+  {
+    "label": "Output",
+    "name": "output",
+    "variableName": "#output#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#ExecuteShellCommand.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

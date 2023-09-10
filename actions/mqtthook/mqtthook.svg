@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 16 16"
+   overflow="visible"
+   version="1.1"
+   id="svg235"
+   sodipodi:docname="mqtt.svg"
+   width="16"
+   height="16"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs239" />
+  <sodipodi:namedview
+     id="namedview237"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     width="16px"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="143.28145"
+     inkscape:cx="7.9284513"
+     inkscape:cy="3.8734951"
+     inkscape:window-width="3840"
+     inkscape:window-height="2479"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg235" />
+  <path
+     d="M 0.04726924,9.0628147 H 0 v 6.1154283 c 0,0.441319 0.36239749,0.803831 0.80357704,0.803831 H 7.098264 C 7.0431164,12.159932 3.9075903,9.0628147 0.04726924,9.0628147 Z m 0,-5.0436512 H 0 v 2.6006327 c 5.1917378,0.023641 9.4144566,4.2004158 9.4696037,9.3622778 H 12.16395 C 12.116681,9.3780427 6.7043533,4.0191635 0.04726924,4.0191635 Z M 15.98488,15.186123 V 9.6617485 C 14.157137,5.1855079 10.478015,1.647071 5.9007763,3.5205531e-6 H 0.80357704 C 0.36239749,3.5205531e-6 0,0.36251598 0,0.80383551 V 1.5840253 C 7.9885011,1.607668 14.488021,8.0462034 14.53529,15.989955 h 0.646014 c 0.449057,-0.0078 0.803576,-0.362512 0.803576,-0.803832 z M 13.8814,2.2302432 c 0.740551,0.7407863 1.496858,1.6785904 2.10348,2.5060646 V 0.79595481 A 0.79333536,0.79358708 0 0 0 15.189182,3.5205531e-6 H 11.131905 C 12.07729,0.65410209 13.054188,1.4027692 13.8814,2.2302432 Z"
+     fill="#660066"
+     id="path233"
+     style="stroke-width:0.0787943" />
+</svg>

@@ -1,0 +1,29 @@
+[
+  {
+    "label": "File",
+    "name": "file",
+    "variableName": "#file#",
+    "propertytype": "filename",
+    "required": true
+  },
+  {
+    "label": "Path",
+    "name": "path",
+    "variableName": "#path#",
+    "propertytype": "foldername",
+    "showhintchecked": false,
+    "required": true
+  },
+  {
+    "label": "Password",
+    "name": "password",
+    "variableName": "#password#",
+    "propertytype": "password"
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#Decompress.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

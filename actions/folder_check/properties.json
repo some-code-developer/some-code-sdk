@@ -1,0 +1,20 @@
+[
+  {
+    "label": "Folder Name",
+    "name": "folder",
+    "variableName": "#folder#",
+    "propertytype": "foldername",
+    "showhintchecked": true,
+    "hint": "Folder to check",
+    "minchecked": true,
+    "min": "1",
+    "required": true
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#CheckFolder.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false
+  }
+]

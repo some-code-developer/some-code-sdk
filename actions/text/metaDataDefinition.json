@@ -1,0 +1,37 @@
+{
+  "hideToolbar": true,
+  "readOnly": false,
+  "hideDelete": true,
+  "hideSaveAs": true,
+  "title": "Properties",
+  "definition": [
+    {
+      "cols": [
+        {
+          "childType": "TextArea",
+          "width": 0,
+          "name": "text",
+          "showlabelchecked": true,
+          "label": "Text",
+          "height": 10,
+          "required": false
+        }
+      ]
+    },
+    {
+      "cols": [
+        {
+          "childType": "Input",
+          "width": 0,
+          "name": "textColor",
+          "showlabelchecked": true,
+          "label": "Text Color",
+          "fieldtype": "color",
+          "hasdefault": true,
+          "default": "#000000"
+        }
+      ]
+    }
+  ],
+  "actions": []
+}

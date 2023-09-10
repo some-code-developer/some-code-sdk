@@ -1,0 +1,22 @@
+[
+  {
+    "label": "IF Expression",
+    "name": "Expression",
+    "variableName": "#IF.Expression#",
+    "propertytype": "text",
+    "showhintchecked": true,
+    "hint": "The expression must return true or false",
+    "minchecked": true,
+    "min": "1",
+    "hasdefault": true,
+    "default": "true",
+    "required": true
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#IF.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false
+  }
+]

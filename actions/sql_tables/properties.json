@@ -1,0 +1,28 @@
+[
+  {
+    "label": "Connection",
+    "name": "connection",
+    "variableName": "#connection#",
+    "propertytype": "connection",
+    "required": true,
+    "connection_type": "Database",
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Tables",
+    "name": "tables",
+    "variableName": "#tables#",
+    "propertytype": "variable",
+    "required": false,
+    "response": false
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#SqlTables.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false,
+    "response": false
+  }
+]

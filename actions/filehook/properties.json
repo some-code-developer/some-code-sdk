@@ -1,0 +1,73 @@
+[
+  {
+    "label": "Enabled",
+    "name": "enabled",
+    "variableName": "#enabled#",
+    "propertytype": "checkbox",
+    "required": false,
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Path",
+    "name": "path",
+    "variableName": "#path#",
+    "propertytype": "text",
+    "required": false,
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Add File",
+    "name": "addFile",
+    "variableName": "#addFile#",
+    "propertytype": "checkbox",
+    "required": false,
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Delete File",
+    "name": "deleteFile",
+    "variableName": "#deleteFile#",
+    "propertytype": "checkbox",
+    "required": false,
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Modify File",
+    "name": "modifyFile",
+    "variableName": "#modifyFile#",
+    "propertytype": "checkbox",
+    "required": false,
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Add Folder",
+    "name": "addFolder",
+    "variableName": "#addFolder#",
+    "propertytype": "checkbox",
+    "required": false,
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Delete Folder",
+    "name": "deleteFolder",
+    "variableName": "#deleteFolder#",
+    "propertytype": "checkbox",
+    "required": false,
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Hook Data",
+    "name": "hookData",
+    "variableName": "#FileHook.hookData#",
+    "propertytype": "variable",
+    "required": false,
+    "response": false
+  }
+]

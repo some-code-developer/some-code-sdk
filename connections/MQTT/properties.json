@@ -1,0 +1,35 @@
+[
+  {
+    "label": "Protocol",
+    "name": "protocol",
+    "propertytype": "select",
+    "keys": "mqtt://\nmqtts://\ntcp://\ntls://\nws://\nwss://",
+    "values": "mqtt://\nmqtts://\ntcp://\ntls://\nws://\nwss://"
+  },
+  {
+    "label": "Host",
+    "name": "host",
+    "propertytype": "text",
+    "required": true
+  },
+  {
+    "label": "User",
+    "name": "user",
+    "propertytype": "text",
+    "required": true
+  },
+  {
+    "label": "Password",
+    "name": "password",
+    "propertytype": "password",
+    "hasdefault": false
+  },
+  {
+    "label": "Port",
+    "name": "port",
+    "propertytype": "number",
+    "hasdefault": true,
+    "default": "1883",
+    "required": true
+  }
+]
