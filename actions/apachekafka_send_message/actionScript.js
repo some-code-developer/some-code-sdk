@@ -1,4 +1,4 @@
-const kafka = require("kafka-node");
+const kafka = require('kafka-node');
 
 // TO DO
 // Investigate switching to more modern library (kafkajs)
@@ -14,6 +14,7 @@ const sendMessage = async () => {
     const connectionOptions = {
       kafkaHost: `${actionParameters.connection.host}:${actionParameters.connection.port}`,
       reconnectOnIdle: false,
+      idleConnection: 500,
     };
 
     const kafkaClient = new kafka.KafkaClient(connectionOptions);
@@ -23,7 +24,7 @@ const sendMessage = async () => {
 
     const messages = [];
 
-    if (actionParameters.keyedMessage == "true") messages.push(new KeyedMessage(actionParameters.key, actionParameters.message));
+    if (actionParameters.keyedMessage == 'true') messages.push(new KeyedMessage(actionParameters.key, actionParameters.message));
     else messages.push(actionParameters.message);
 
     const message = {
@@ -39,16 +40,17 @@ const sendMessage = async () => {
     const onError = (err) => reject(err);
 
     const onReady = async () => {
-      logger.debug("Kafka - Ready");
+      logger.debug('Kafka - Ready');
       producer.send([message], function (err, data) {
         if (err) return reject(err);
-        logger.debug("Message Sent");
+        logger.debug('Message Sent');
         actionParameters.response = data;
+        kafkaClient.close();
         resolve();
       });
     };
-    producer.on("ready", onReady);
-    producer.on("error", onError);
+    producer.on('ready', onReady);
+    producer.on('error', onError);
   });
 
   return p;

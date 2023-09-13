@@ -8,7 +8,7 @@ const { screenFormat } = require('./winstonFormats');
 
 const { ERROR, SUCCESS, RUNNING, LOOP_END, NOT_STARTED } = require('./consts');
 
-const createWorkflowLogger = () => {
+const createWorkflowLogger = (level) => {
   const transportsArray = [
     new winston.transports.Console({
       handleExceptions: true,
@@ -17,7 +17,7 @@ const createWorkflowLogger = () => {
   ];
 
   return createLogger({
-    level: 'debug',
+    level,
     transports: transportsArray,
     exitOnError: false,
   });
@@ -37,7 +37,7 @@ function getActionScript(actionCode) {
   return fs.readFileSync(path.resolve('./actions', actionCode, 'actionScript.js'));
 }
 
-const executeAction = async (actionToExecute, actionParameters) => {
+const executeAction = async (actionToExecute, actionParameters, level = 'info') => {
   // Init variables and const's
 
   let workflowParameters = {};
@@ -50,7 +50,7 @@ const executeAction = async (actionToExecute, actionParameters) => {
   const actionExecutionInfoFolder = path.resolve(executionFolder, 'actions-execution-info');
 
   // Creating logger
-  const logger = createWorkflowLogger();
+  const logger = createWorkflowLogger(level);
 
   const stepExecutionInfo = {
     action: actionToExecute,
@@ -107,7 +107,7 @@ const executeAction = async (actionToExecute, actionParameters) => {
   };
 
   try {
-    logger.info(`Executing Action: ${actionToExecute}`);
+    logger.debug(`Executing Action: ${actionToExecute}`);
 
     logObject(actionParameters, 'Action Parameters:');
 
@@ -141,7 +141,7 @@ const executeAction = async (actionToExecute, actionParameters) => {
     executionResult = ERROR;
   }
 
-  logger.info(`Execution Result: ${executionResult}`);
+  logger.debug(`Execution Result: ${executionResult}`);
 
   return executionResult;
 };

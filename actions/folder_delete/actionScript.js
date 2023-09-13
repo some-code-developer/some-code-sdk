@@ -1,12 +1,12 @@
-const fs = require("fs").promises;
+const fs = require('fs');
 
 //NOTE: cleanPath function prevents access to the files or folders outside files directory
-const { cleanPath } = require("./utils");
+const { cleanPath } = require('./utils');
 
 actionParameters.ExecutionResult = SUCCESS;
 try {
   const folder = cleanPath(actionParameters.folder);
-  await fs.rmdir(folder, { recursive: actionParameters.Recursive == "true" });
+  fs.rmdirSync(folder, { recursive: actionParameters.recursive == 'true' });
 } catch (e) {
   actionParameters.ExecutionResult = ERROR;
   stepExecutionInfo.message = e.message;

@@ -2,15 +2,15 @@ const os = require('node:os');
 const fs = require('fs');
 const executeAction = require('./../../utils/action_execute.js');
 
-const action = 'error';
+const action = 'success';
 
-const { ERROR } = require('./../../utils/consts.js');
+const { SUCCESS } = require('./../../utils/consts.js');
 
 describe(`${action} Tests`, () => {
-  test('Testing Failure', async () => {
+  test('Testing Success', async () => {
     const actionParameters = {};
     const result = await executeAction(action, actionParameters);
     // assert
-    expect(result).toBe(ERROR);
+    expect(result).toBe(SUCCESS);
   });
 });

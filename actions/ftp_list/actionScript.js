@@ -1,9 +1,8 @@
-const ftp = require("basic-ftp");
+const ftp = require('basic-ftp');
 
 actionParameters.ExecutionResult = SUCCESS;
+const client = new ftp.Client();
 try {
-  const client = new ftp.Client();
-
   const connection = {
     host: actionParameters.connection.host,
     port: Number(actionParameters.connection.port),
@@ -20,4 +19,5 @@ try {
   stepExecutionInfo.message = e.message;
   logger.error(e.message);
 }
+client.close();
 return actionParameters.ExecutionResult;

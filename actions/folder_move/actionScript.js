@@ -1,9 +1,8 @@
-const path = require("node:path");
-const fs = require("fs");
-const fsp = require("fs").promises;
+const path = require('node:path');
+const fs = require('fs');
 
 //NOTE: cleanPath function prevents access to the files or folders outside files directory
-const { cleanPath } = require("./utils");
+const { cleanPath } = require('./utils');
 
 function copyFolderSync(from, to) {
   if (fs.existsSync(from)) {
@@ -17,12 +16,14 @@ function copyFolderSync(from, to) {
     });
   }
 }
+
 actionParameters.ExecutionResult = SUCCESS;
 try {
   const source = cleanPath(actionParameters.source);
   const target = cleanPath(actionParameters.target);
+  if (!fs.existsSync(source)) throw new Error(`Folder: ${source} does not exists`);
   copyFolderSync(source, target);
-  await fsp.rm(source, { recursive: true });
+  fs.rmdirSync(source, { recursive: true });
 } catch (e) {
   actionParameters.ExecutionResult = ERROR;
   stepExecutionInfo.message = e.message;

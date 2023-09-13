@@ -1,11 +1,10 @@
-const path = require("path");
-const anymatch = require("anymatch");
-const ftp = require("basic-ftp");
+const path = require('path');
+const anymatch = require('anymatch');
+const ftp = require('basic-ftp');
 
 actionParameters.ExecutionResult = SUCCESS;
+const client = new ftp.Client();
 try {
-  const client = new ftp.Client();
-
   const connection = {
     host: actionParameters.connection.host,
     port: Number(actionParameters.connection.port),
@@ -27,11 +26,12 @@ try {
   const files = filesList.filter((fn) => anymatch(mask, fn.name) && fn.type === 1);
 
   if (files.length === 0) throw new Error(`File: ${actionParameters.file} does not exists`);
-
   logger.debug(`Found: ${files.length} file(s)`);
 } catch (e) {
   actionParameters.ExecutionResult = ERROR;
   stepExecutionInfo.message = e.message;
   logger.error(e.message);
 }
+client.close();
+
 return actionParameters.ExecutionResult;

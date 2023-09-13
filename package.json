@@ -37,7 +37,8 @@
     "xslt-processor": "^1.2.2"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest -i --runInBand",
+    "test-handles": "jest -i --runInBand --detectOpenHandles",
     "actions-backup": "node ./utils/actions_backup.js",
     "actions-restore": "node ./utils/actions_restore.js",
     "connections-backup": "node ./utils/connections_backup.js",

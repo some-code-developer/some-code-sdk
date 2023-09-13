@@ -1,9 +1,9 @@
-const fs = require("fs");
-const path = require("path");
-const anymatch = require("anymatch");
+const fs = require('fs');
+const path = require('path');
+const anymatch = require('anymatch');
 
 //NOTE: cleanPath function prevents access to the files or folders outside files directory
-const { cleanPath } = require("./utils");
+const { cleanPath } = require('./utils');
 
 actionParameters.ExecutionResult = SUCCESS;
 const files = [];
@@ -12,6 +12,7 @@ try {
   const directory = path.dirname(fileName);
   const mask = path.basename(fileName);
   const filesList = fs.readdirSync(directory).filter((fn) => anymatch(mask, fn));
+  if (filesList.length === 0) throw new Error(`File/Folder: ${fileName} does not exists`);
   filesList.forEach((fn) => {
     const file = path.resolve(directory, fn);
     files.push(file);
