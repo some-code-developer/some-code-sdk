@@ -14,6 +14,6 @@ const actionParameters = {
 
 const action = 'apachekafka_send_message';
 
-executeAction(action, actionParameters, 'debug');
+executeAction(action, actionParameters);
 
 //restore(action);

@@ -1,8 +1,8 @@
 require('dotenv').config();
+const fs = require('fs');
 const executeAction = require('../utils/action_execute.js');
-const ftp = require('basic-ftp');
 
-const action = 'ftp_create_folder';
+const action = 'ftp_download_files';
 
 const { SUCCESS, ERROR } = require('../utils/consts.js');
 
@@ -14,13 +14,11 @@ const connection = {
   secure: false,
 };
 
-const folder = '/play-ground/folder-create';
+const file = './play-ground/test.txt';
+const folder = './play-ground/download-files';
 
 afterAll(async () => {
-  const client = new ftp.Client();
-  await client.access(connection);
-  await client.removeDir(folder);
-  client.close();
+  if (fs.existsSync(folder)) fs.rmdirSync(folder, { recursive: true });
 });
 
 describe(`${action} Tests`, () => {
@@ -28,6 +26,7 @@ describe(`${action} Tests`, () => {
     const actionParameters = {
       connection,
       folder,
+      file,
     };
 
     const result = await executeAction(action, actionParameters);
@@ -35,26 +34,44 @@ describe(`${action} Tests`, () => {
     expect(result).toBe(SUCCESS);
   });
 
-  // This will never fail unfortunately
+  test('Testing Failure - wrong file', async () => {
+    const actionParameters = {
+      connection,
+      folder,
+      file: null,
+    };
+    const result = await executeAction(action, actionParameters);
+    // assert
+    expect(result).toBe(ERROR);
+  });
+
   test('Testing Failure - wrong folder', async () => {
     const actionParameters = {
       connection,
-      folder: 'c:/play-ground/',
+      folder: null,
+      file,
     };
     const result = await executeAction(action, actionParameters);
     // assert
-    expect(result).toBe(SUCCESS);
+    expect(result).toBe(ERROR);
   });
 
   test('Testing Failure - missing connection', async () => {
-    const actionParameters = { folder: './play-ground/folder-create/' };
+    const actionParameters = { folder };
+    const result = await executeAction(action, actionParameters);
+    // assert
+    expect(result).toBe(ERROR);
+  });
+
+  test('Testing Failure - missing file', async () => {
+    const actionParameters = { connection, folder };
     const result = await executeAction(action, actionParameters);
     // assert
     expect(result).toBe(ERROR);
   });
 
   test('Testing Failure - missing folder', async () => {
-    const actionParameters = { connection };
+    const actionParameters = { connection, file };
     const result = await executeAction(action, actionParameters);
     // assert
     expect(result).toBe(ERROR);

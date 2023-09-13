@@ -1,8 +1,9 @@
 require('dotenv').config();
+const path = require('path');
 const executeAction = require('../utils/action_execute.js');
 const ftp = require('basic-ftp');
 
-const action = 'ftp_create_folder';
+const action = 'ftp_delete_folder';
 
 const { SUCCESS, ERROR } = require('../utils/consts.js');
 
@@ -14,12 +15,12 @@ const connection = {
   secure: false,
 };
 
-const folder = '/play-ground/folder-create';
+const folder = '/play-ground/delete-folder';
 
-afterAll(async () => {
+beforeAll(async () => {
   const client = new ftp.Client();
   await client.access(connection);
-  await client.removeDir(folder);
+  await client.ensureDir(folder);
   client.close();
 });
 
@@ -35,25 +36,24 @@ describe(`${action} Tests`, () => {
     expect(result).toBe(SUCCESS);
   });
 
-  // This will never fail unfortunately
-  test('Testing Failure - wrong folder', async () => {
+  test('Testing Failure - wrong file', async () => {
     const actionParameters = {
       connection,
-      folder: 'c:/play-ground/',
+      folder: null,
     };
-    const result = await executeAction(action, actionParameters);
-    // assert
-    expect(result).toBe(SUCCESS);
-  });
-
-  test('Testing Failure - missing connection', async () => {
-    const actionParameters = { folder: './play-ground/folder-create/' };
     const result = await executeAction(action, actionParameters);
     // assert
     expect(result).toBe(ERROR);
   });
 
-  test('Testing Failure - missing folder', async () => {
+  test('Testing Failure - missing connection', async () => {
+    const actionParameters = { folder };
+    const result = await executeAction(action, actionParameters);
+    // assert
+    expect(result).toBe(ERROR);
+  });
+
+  test('Testing Failure - missing file', async () => {
     const actionParameters = { connection };
     const result = await executeAction(action, actionParameters);
     // assert

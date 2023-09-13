@@ -1,8 +1,8 @@
 require('dotenv').config();
+const os = require('node:os');
 const executeAction = require('../utils/action_execute.js');
-const ftp = require('basic-ftp');
 
-const action = 'ftp_create_folder';
+const action = 'ftp_check_file';
 
 const { SUCCESS, ERROR } = require('../utils/consts.js');
 
@@ -14,20 +14,11 @@ const connection = {
   secure: false,
 };
 
-const folder = '/play-ground/folder-create';
-
-afterAll(async () => {
-  const client = new ftp.Client();
-  await client.access(connection);
-  await client.removeDir(folder);
-  client.close();
-});
-
 describe(`${action} Tests`, () => {
   test('Testing Success', async () => {
     const actionParameters = {
       connection,
-      folder,
+      file: './play-ground/test.txt',
     };
 
     const result = await executeAction(action, actionParameters);
@@ -35,25 +26,24 @@ describe(`${action} Tests`, () => {
     expect(result).toBe(SUCCESS);
   });
 
-  // This will never fail unfortunately
-  test('Testing Failure - wrong folder', async () => {
+  test('Testing Failure - wrong file', async () => {
     const actionParameters = {
       connection,
-      folder: 'c:/play-ground/',
+      file: './play-ground/test-wrong.txt',
     };
-    const result = await executeAction(action, actionParameters);
-    // assert
-    expect(result).toBe(SUCCESS);
-  });
-
-  test('Testing Failure - missing connection', async () => {
-    const actionParameters = { folder: './play-ground/folder-create/' };
     const result = await executeAction(action, actionParameters);
     // assert
     expect(result).toBe(ERROR);
   });
 
-  test('Testing Failure - missing folder', async () => {
+  test('Testing Failure - missing connection', async () => {
+    const actionParameters = { file: './play-ground/test.txt' };
+    const result = await executeAction(action, actionParameters);
+    // assert
+    expect(result).toBe(ERROR);
+  });
+
+  test('Testing Failure - missing file', async () => {
     const actionParameters = { connection };
     const result = await executeAction(action, actionParameters);
     // assert

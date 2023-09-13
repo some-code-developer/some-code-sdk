@@ -24,6 +24,9 @@ try {
   await client.cd(remoteFolder);
 
   const localFolder = cleanPath(actionParameters.folder);
+
+  if (!fs.existsSync(localFolder)) fs.mkdirSync(localFolder, { recursive: true });
+
   const mask = path.basename(actionParameters.file);
 
   const filesList = await client.list();

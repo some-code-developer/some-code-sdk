@@ -1,10 +1,10 @@
 const os = require('node:os');
 const fs = require('fs');
-const executeAction = require('./../../utils/action_execute.js');
+const executeAction = require('../utils/action_execute.js');
 
 const action = 'success';
 
-const { SUCCESS } = require('./../../utils/consts.js');
+const { SUCCESS } = require('../utils/consts.js');
 
 describe(`${action} Tests`, () => {
   test('Testing Success', async () => {

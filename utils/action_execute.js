@@ -11,10 +11,14 @@ const { ERROR, SUCCESS, RUNNING, LOOP_END, NOT_STARTED } = require('./consts');
 const createWorkflowLogger = (level) => {
   const transportsArray = [
     new winston.transports.Console({
-      handleExceptions: true,
+      handleExceptions: false,
       format: screenFormat,
     }),
   ];
+
+  if (process.env.NODE_ENV === 'test' && level !== 'debug') {
+    transportsArray[0].silent = true;
+  }
 
   return createLogger({
     level,
@@ -136,8 +140,8 @@ const executeAction = async (actionToExecute, actionParameters, level = 'info') 
 
     logObject(workflowVariables, 'Variables:');
   } catch (e) {
-    logger.error(e.message);
-    logger.error(e.stack.replace(e.message, ''));
+    logger.info(e.message);
+    logger.info(e.stack.replace(e.message, ''));
     executionResult = ERROR;
   }
 
