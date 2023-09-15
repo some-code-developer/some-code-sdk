@@ -1,11 +1,13 @@
-const typeorm = require("typeorm");
+const typeorm = require('typeorm');
 actionParameters.ExecutionResult = SUCCESS;
 try {
   // Documentation
   // https://typeorm.io/
 
+  if (!actionParameters.sql) throw new Error(`Missing Sql`);
+
   const connection = {
-    name: "sql_check",
+    name: 'sql_count',
     type: actionParameters.connection.type,
     host: actionParameters.connection.host,
     port: Number(actionParameters.connection.port),

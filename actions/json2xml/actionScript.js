@@ -1,6 +1,7 @@
-const convert = require("xml-js");
+const convert = require('xml-js');
 actionParameters.ExecutionResult = SUCCESS;
 try {
+  if (!actionParameters.json) throw new Error('Missing JSON');
   actionParameters.xml = convert.json2xml(actionParameters.json, { compact: true, spaces: 4 });
 } catch (e) {
   actionParameters.ExecutionResult = ERROR;

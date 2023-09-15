@@ -15,7 +15,7 @@
     "propertytype": "connection",
     "required": false,
     "response": false,
-    "connection_type": "Office365Hook",
+    "connection_type": "Office365",
     "static": true
   },
   {

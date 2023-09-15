@@ -23,7 +23,7 @@ try {
   const target = cleanPath(actionParameters.target);
   if (!fs.existsSync(source)) throw new Error(`Folder: ${source} does not exists`);
   copyFolderSync(source, target);
-  fs.rmdirSync(source, { recursive: true });
+  fs.rmSync(source, { recursive: true });
 } catch (e) {
   actionParameters.ExecutionResult = ERROR;
   stepExecutionInfo.message = e.message;

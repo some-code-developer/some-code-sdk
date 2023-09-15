@@ -1,19 +1,24 @@
 const executeAction = require('./utils/action_execute.js');
 const restore = require('./utils/action_restore.js');
 
-const actionParameters = {
-  connection: { host: process.env.KAFKA_HOST, port: process.env.KAFKA_PORT },
-  keyedMessage: false,
-  key: undefined,
-  message: 'message',
-  partition: 2,
-  attributes: 0,
-  partitionKey: 'Test',
-  topic: 'some-topic',
+const workflowVariables = {};
+
+const connection = {
+  protocol: process.env.MQTT_PROTOCOL,
+  host: process.env.MQTT_HOST,
+  port: process.env.MQTT_PORT,
+  login: process.env.MQTT_USER,
+  password: process.env.MQTT_PASS,
 };
 
-const action = 'apachekafka_send_message';
+const actionParameters = {
+  connection,
+  topic: 'stat/sm3/RESULT',
+  message: 'message',
+};
 
-executeAction(action, actionParameters);
+const action = 'mqtt_send_message';
+
+//executeAction(action, actionParameters, workflowVariables);
 
 //restore(action);

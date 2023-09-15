@@ -41,11 +41,10 @@ function getActionScript(actionCode) {
   return fs.readFileSync(path.resolve('./actions', actionCode, 'actionScript.js'));
 }
 
-const executeAction = async (actionToExecute, actionParameters, level = 'info') => {
+const executeAction = async (actionToExecute, actionParameters, workflowVariables, level = 'info') => {
   // Init variables and const's
 
   let workflowParameters = {};
-  let workflowVariables = {};
   let executionResult = SUCCESS;
 
   const executionFolder = path.resolve('./executions', actionToExecute);

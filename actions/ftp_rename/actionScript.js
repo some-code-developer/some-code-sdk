@@ -12,7 +12,6 @@ try {
   };
 
   await client.access(connection);
-  //await client.cd(actionParameters.remoteFolder)
   await client.rename(actionParameters.source, actionParameters.target);
 } catch (e) {
   actionParameters.ExecutionResult = ERROR;

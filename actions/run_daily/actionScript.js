@@ -1,5 +1,5 @@
-const dayjs = require("dayjs");
-const { setTimeout } = require("timers/promises");
+const dayjs = require('dayjs');
+const { setTimeout } = require('timers/promises');
 actionParameters.ExecutionResult = SUCCESS;
 
 // Helper functions
@@ -57,14 +57,14 @@ function tryEncodeDayOfWeekInMonth(Year, Month, WeekNo, WeekDay, date) {
 
 function increaseDateForPeriod(data, startDate, endDateTime) {
   // No repeat
-  if (data.repeatType === "0") return ``;
+  if (data.repeatType === '0') return ``;
   while (startDate < endDateTime) {
     // minutes
-    if (data.repeatType === "1") {
+    if (data.repeatType === '1') {
       startDate.setMinutes(startDate.getMinutes() + data.repeatEvery);
     }
     // Hours
-    else if (data.repeatType === "2") {
+    else if (data.repeatType === '2') {
       startDate.setHours(startDate.getHours() + data.repeatEvery);
     }
   }
@@ -94,23 +94,23 @@ function getNextExecution(data) {
   const Months = [data.jan, data.feb, data.mar, data.apr, data.may, data.jun, data.jul, data.aug, data.sep, data.oct, data.nov, data.dec];
   let i = 0;
 
-  if (data.enabled === false) throw new Error("Not enabled");
+  if (data.enabled === false) throw new Error('Not enabled');
 
   // Repeat is very important
   if (data.startAt > now && data.repeatTask === false) return result;
 
   // ATTENTION
-  if (data.useEndDate && data.endDate < now) throw new Error("Beyond end date");
+  if (data.useEndDate && data.endDate < now) throw new Error('Beyond end date');
 
   if (data.repeatTask === true) {
     whenNextStartOriginal.setHours(data.startAt.getHours(), data.startAt.getMinutes(), data.startAt.getSeconds(), 0);
     whenNextStart.setHours(data.repeatStart.getHours(), data.repeatStart.getMinutes(), data.repeatStart.getSeconds(), 0);
     whenNextEnd.setHours(data.repeatUntil.getHours(), data.repeatUntil.getMinutes(), data.repeatUntil.getSeconds(), 0);
 
-    // up to start
+    // Up to start
     increaseDateForPeriod(data, whenNextStartOriginal, whenNextStart);
 
-    // up to now
+    // Up to now
     increaseDateForPeriod(data, whenNextStartOriginal, now);
 
     // Ups next day
@@ -123,7 +123,7 @@ function getNextExecution(data) {
     whenNextStart = whenNextStartOriginal;
   }
 
-  if (data.howOften === "Daily") {
+  if (data.howOften === 'Daily') {
     tmp = dayOftheYear(now) - 1;
     if (data.every == 0) data.every = 1; // otherwise it will newer finish
     while (tmp % data.every != 0) {
@@ -137,16 +137,16 @@ function getNextExecution(data) {
     if (whenNext < now) whenNext.setDate(whenNext.getDate() + data.every);
   }
 
-  if (data.howOften === "Weekly") {
+  if (data.howOften === 'Weekly') {
     setWhenNext(whenNext, whenNextStart, data);
     while ((weekOfTheMonth(whenNext) === data.every && WeekDays[getDay(whenNext) - 1] === true && whenNext > now) === false) {
       whenNext.setDate(whenNext.getDate() + 1);
     }
   }
 
-  if (data.howOften === "Monthly") {
+  if (data.howOften === 'Monthly') {
     whenNext = data.startAt;
-    if (data.monthly_type === "0") {
+    if (data.monthly_type === '0') {
       // Day of month
       setWhenNext(whenNext, whenNextStart, data);
       while ((whenNext.getDate() === data.every && Months[whenNext.getMonth()] === true && whenNext > now) === false) {
@@ -213,28 +213,28 @@ try {
     repeatEvery: parseInt(actionParameters.repeatEvery),
     repeatStart: new Date(`${start_at_date} ${actionParameters.repeatStart}`),
     repeatUntil: new Date(`${start_at_date} ${actionParameters.repeatUntil}`),
-    howOften: "Daily",
+    howOften: 'Daily',
     every: parseInt(actionParameters.everyDay),
-    useEndDate: actionParameters.useEndDate === "true",
+    useEndDate: actionParameters.useEndDate === 'true',
   };
 
   if (data.useEndDate) data.endDate = new Date(actionParameters.endDate);
 
   const startDateTime = getNextExecution(data);
-  if (actionParameters.wait === "true") logger.info(`Waiting until: ${dayjs(startDateTime).toISOString()}`);
+  if (actionParameters.wait === 'true') logger.info(`Waiting until: ${dayjs(startDateTime).toISOString()}`);
   let now = new Date();
   let tmp = 0;
   do {
     tmp++;
     // Checking every 10 seconds if user aborted/paused execution
     if (tmp === 10) {
-      if (isPaused()) throw new Error("Execution aborted");
+      if (isPaused()) throw new Error('Execution aborted');
       tmp = 0;
     }
     // Every second
     await setTimeout(1000);
     now = new Date();
-    if (actionParameters.wait !== "true" && now < startDateTime)
+    if (actionParameters.wait !== 'true' && now < startDateTime)
       throw new Error(`Current time: ${dayjs(now).toISOString()} < Start Date Time: ${dayjs(startDateTime).toISOString()}`);
   } while (now < startDateTime);
   logger.info(`Current time: ${dayjs(now).toISOString()}`);
