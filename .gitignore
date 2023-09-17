@@ -5,6 +5,7 @@ coverage
 *.sqlite-shm
 *.sqlite-wal
 *.zip
+.env
 log
 *.log
 yarn.json

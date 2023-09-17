@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  ftp:
+    image: fauria/vsftpd:latest
+    container_name: Ftp
+    restart: always
+    environment:
+      - FTP_USER=adminuser
+      - FTP_PASS=adminpass
+      - PASV_ADDRESS=127.0.0.1
+      - PASV_MIN_PORT=21100
+      - PASV_MAX_PORT=21110
+    volumes:
+      - ftp-data:/home/vsftpd
+      - ftp-log-data:/var/log/vsftpd
+    ports:
+      - 0.0.0.0:20:20
+      - 0.0.0.0:21:21
+      - "21100-21110:21100-21110"
+volumes:
+  ftp-data:
+    driver: local
+  ftp-log-data:
+    driver: local

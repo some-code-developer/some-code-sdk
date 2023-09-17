@@ -1,3 +1,5 @@
+// Demonstrates running single action and restoring it
+
 const executeAction = require('./utils/action_execute.js');
 const restore = require('./utils/action_restore.js');
 
@@ -19,6 +21,6 @@ const actionParameters = {
 
 const action = 'mqtt_send_message';
 
-//executeAction(action, actionParameters, workflowVariables);
+executeAction(action, actionParameters, workflowVariables);
 
-//restore(action);
+restore(action);
