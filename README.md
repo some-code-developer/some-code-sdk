@@ -3,7 +3,7 @@
 This project holds the latest list of **["Some code"](https://www.some-code.com/)** actions and connections
 The purpose of this project is to help developers to design new actions according to their needs.
 
-> **Note:** Although it is possible to create actions and connections using some-code interface, SDK provides more connivent way of trouble shooting the above
+> **Note:** Although it is possible to create actions and connections using some-code interface, SDK provides more connivent way of trouble-shooting the above
 
 # Installation
 
