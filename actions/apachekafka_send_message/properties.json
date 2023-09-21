@@ -10,20 +10,20 @@
     "static": true
   },
   {
-    "label": "Partition Key",
-    "name": "partitionKey",
-    "variableName": "#partitionKey#",
-    "propertytype": "text",
-    "required": false,
-    "static": false,
-    "response": false
-  },
-  {
     "label": "Keyed Message",
     "name": "keyedMessage",
     "variableName": "#keyedMessage#",
     "propertytype": "checkbox",
     "required": false,
+    "response": false,
+    "static": false
+  },
+  {
+    "label": "Topic",
+    "name": "topic",
+    "variableName": "#topic#",
+    "propertytype": "textarea",
+    "required": true,
     "response": false,
     "static": false
   },
@@ -37,33 +37,6 @@
     "static": false
   },
   {
-    "label": "Partition",
-    "name": "partition",
-    "variableName": "#partition#",
-    "propertytype": "number",
-    "required": true,
-    "hasdefault": true,
-    "default": 0
-  },
-  {
-    "label": "Attributes",
-    "name": "attributes",
-    "variableName": "#attributes#",
-    "propertytype": "number",
-    "required": true,
-    "hasdefault": true,
-    "default": 0
-  },
-  {
-    "label": "Topic",
-    "name": "topic",
-    "variableName": "#topic#",
-    "propertytype": "textarea",
-    "required": true,
-    "response": false,
-    "static": false
-  },
-  {
     "label": "Message",
     "name": "message",
     "variableName": "#message#",
@@ -71,12 +44,6 @@
     "required": true,
     "response": false,
     "static": false
-  },
-  {
-    "label": "Response",
-    "name": "response",
-    "variableName": "#response#",
-    "propertytype": "variable"
   },
   {
     "label": "Execution Result",

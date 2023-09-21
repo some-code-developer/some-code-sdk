@@ -10,11 +10,8 @@ const workflowVariables = {};
 const actionParameters = {
   connection: { host: process.env.KAFKA_HOST, port: process.env.KAFKA_PORT },
   keyedMessage: false,
-  key: undefined,
+  key: 'key',
   message: 'message',
-  partition: 2,
-  attributes: 0,
-  partitionKey: 'Test',
   topic: 'some-topic',
 };
 
