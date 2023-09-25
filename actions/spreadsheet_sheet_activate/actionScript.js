@@ -13,9 +13,6 @@ try {
   const worksheet = workbook.getWorksheet(actionParameters.sheet);
   worksheet.activeTab;
   if (!worksheet) throw new Error(`Sheet: "${actionParameters.sheet}" not found`);
-
-  logger.error(JSON.stringify(workbook.views));
-
   workbook.views = [
     {
       x: 0,

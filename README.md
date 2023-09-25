@@ -184,6 +184,7 @@ MIT
 
 # About "Some code"
 
-Some code was created by some developer some time ago.
-The objective of some code project is to put the users under a lot pressure.
-Because the pressure makes diamonds.
+Some code was created by some developer some time ago.\
+The objective of some code project is to **put some users under a lot pressure.**
+
+_**"Because the pressure makes diamonds."**_
