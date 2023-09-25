@@ -1,7 +1,10 @@
-const nodemailer = require("nodemailer");
-const path = require("path");
-const fs = require("fs");
-const anymatch = require("anymatch");
+// Documentation
+// http://nodemailer.com
+
+const nodemailer = require('nodemailer');
+const path = require('path');
+const fs = require('fs');
+const anymatch = require('anymatch');
 
 const listFiles = (searchPath, attachments) => {
   const file = cleanPath(searchPath);
@@ -19,12 +22,9 @@ const listFiles = (searchPath, attachments) => {
 
 actionParameters.ExecutionResult = SUCCESS;
 //NOTE: cleanPath function prevents access to the files or folders outside files directory
-const { cleanPath } = require("./utils");
+const { cleanPath } = require('./utils');
 
 try {
-  // Documentation
-  // http://nodemailer.com
-
   let smptpConnection = {
     host: actionParameters.connection.host,
     port: actionParameters.connection.port,
@@ -42,10 +42,18 @@ try {
 
   if (actionParameters.replaceVariables) {
     //replacing workflowVariables first
-    for (const key in workflowVariables) html = html.split(key).join(workflowVariables[key]);
+    for (const key in workflowVariables)
+      if (typeof workflowVariables[key] === 'object') {
+        for (const childKey in workflowVariables[key]) html = html.split(`${key}.${childKey}`).join(workflowVariables[key][childKey]);
+        html = html.split(key).join(JSON.stringify(workflowVariables[key], null, 4));
+      } else html = html.split(key).join(workflowVariables[key]);
 
-    //replacing globalParameters first
-    for (const key in workflowParameters) html = html.split(key).join(workflowParameters[key]);
+    //replacing globalParameters
+    for (const key in workflowParameters)
+      if (typeof workflowParameters[key] === 'object') {
+        for (const childKey in workflowParameters[key]) html = html.split(`${key}.${childKey}`).join(workflowParameters[key][childKey]);
+        html = html.split(key).join(JSON.stringify(workflowParameters[key], null, 4));
+      } else html = html.split(key).join(workflowParameters[key]);
   }
 
   let message = {

@@ -11,8 +11,22 @@ try {
   const workbook = new ExcelJS.Workbook();
   await workbook.xlsx.readFile(fileName);
   const worksheet = workbook.getWorksheet(actionParameters.sheet);
+  worksheet.activeTab;
   if (!worksheet) throw new Error(`Sheet: "${actionParameters.sheet}" not found`);
-  workbook.removeWorksheet(worksheet.id);
+
+  logger.error(JSON.stringify(workbook.views));
+
+  workbook.views = [
+    {
+      x: 0,
+      y: 0,
+      width: 10000,
+      height: 20000,
+      firstSheet: 0,
+      activeTab: worksheet.id - 1,
+      visibility: 'visible',
+    },
+  ];
   await workbook.xlsx.writeFile(fileName);
 } catch (e) {
   actionParameters.ExecutionResult = ERROR;

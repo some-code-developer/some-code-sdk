@@ -31,7 +31,7 @@
   {
     "label": "Execution Result",
     "name": "ExecutionResult",
-    "variableName": "#ListFile.ExecutionResult#",
+    "variableName": "#SpreadsheetData.ExecutionResult#",
     "propertytype": "variable",
     "required": false
   }

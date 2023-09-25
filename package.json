@@ -17,6 +17,7 @@
     "cryptr": "^6.3.0",
     "dayjs": "^1.11.9",
     "dotenv": "^16.3.1",
+    "exceljs": "^4.3.0",
     "global": "^4.4.0",
     "kafka-node": "^5.0.0",
     "kafkajs": "^2.2.4",

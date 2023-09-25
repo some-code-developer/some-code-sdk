@@ -1,16 +1,18 @@
-const fs = require("fs");
-const path = require("path");
-const reader = require("xlsx");
+// Documentation
+// https://github.com/exceljs/exceljs#interface
+
+const ExcelJS = require('exceljs');
 
 //NOTE: cleanPath function prevents access to the files or folders outside files directory
-const { cleanPath } = require("./utils");
+const { cleanPath } = require('./utils');
 
 actionParameters.ExecutionResult = SUCCESS;
-const files = [];
+actionParameters.sheets = [];
 try {
   const fileName = cleanPath(actionParameters.file);
-  const file = reader.readFile(fileName);
-  actionParameters.sheets = file.SheetNames;
+  const workbook = new ExcelJS.Workbook();
+  await workbook.xlsx.readFile(fileName);
+  workbook.worksheets.forEach((worksheet, sheetId) => actionParameters.sheets.push(worksheet.name));
 } catch (e) {
   actionParameters.ExecutionResult = ERROR;
   stepExecutionInfo.message = e.message;

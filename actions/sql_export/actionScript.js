@@ -1,3 +1,6 @@
+// Documentation
+// https://typeorm.io/
+
 const typeorm = require('typeorm');
 const fs = require('fs');
 
@@ -6,9 +9,6 @@ const { cleanPath } = require('./utils');
 
 actionParameters.ExecutionResult = SUCCESS;
 try {
-  // Documentation
-  // https://typeorm.io/
-
   if (!actionParameters.sql) throw new Error(`Missing Sql`);
 
   const connection = {

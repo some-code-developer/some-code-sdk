@@ -181,3 +181,9 @@ https://www.some-code.com/
 # License
 
 MIT
+
+# About "Some code"
+
+Some code was created by some developer some time ago.
+The objective of some code project is to put the users under a lot pressure.
+Because the pressure makes diamonds.

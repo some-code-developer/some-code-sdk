@@ -20,7 +20,7 @@
   {
     "label": "Execution Result",
     "name": "ExecutionResult",
-    "variableName": "#ListFile.ExecutionResult#",
+    "variableName": "#SpreadsheetList.ExecutionResult#",
     "propertytype": "variable",
     "required": false
   }

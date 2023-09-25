@@ -10,9 +10,9 @@ actionParameters.ExecutionResult = SUCCESS;
 
 try {
   const kafka = new Kafka({
-    clientId: 'some-code',
+    clientId: 'some-code-producer',
     brokers: [`${actionParameters.connection.host}:${actionParameters.connection.port}`],
-    logLevel: logLevel.INFO,
+    logLevel: logLevel.NOTHING,
   });
 
   const producer = kafka.producer();
@@ -20,7 +20,8 @@ try {
 
   const messages = [];
 
-  if (actionParameters.keyedMessage == 'true') messages.push({ key: actionParameters.key, value: actionParameters.message });
+  if (actionParameters.keyedMessage === true || actionParameters.keyedMessage === 'true')
+    messages.push({ key: actionParameters.key, value: actionParameters.message });
   else messages.push({ value: actionParameters.message });
 
   const message = {

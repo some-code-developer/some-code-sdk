@@ -5,22 +5,26 @@
     "variableName": "#file#",
     "propertytype": "filename",
     "showhintchecked": true,
-    "hint": "File(s) to list",
+    "hint": "File Name",
     "minchecked": true,
     "min": "1",
     "required": true
   },
   {
-    "label": "Files",
-    "name": "files",
-    "variableName": "#files#",
-    "propertytype": "variable",
-    "required": false
+    "label": "Sheet Name",
+    "name": "sheet",
+    "variableName": "#sheet#",
+    "propertytype": "text",
+    "showhintchecked": true,
+    "hint": "Sheet Name",
+    "minchecked": true,
+    "min": "1",
+    "required": true
   },
   {
     "label": "Execution Result",
     "name": "ExecutionResult",
-    "variableName": "#ListFile.ExecutionResult#",
+    "variableName": "#SpreadsheetAdd.ExecutionResult#",
     "propertytype": "variable",
     "required": false
   }
