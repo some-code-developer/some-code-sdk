@@ -1,0 +1,45 @@
+[
+  {
+    "label": "Connection",
+    "name": "connection",
+    "variableName": "#connection#",
+    "propertytype": "connection",
+    "required": false,
+    "response": false,
+    "connection_type": "ChatGPT",
+    "static": true
+  },
+  {
+    "label": "Model",
+    "name": "model",
+    "variableName": "#model#",
+    "propertytype": "textarea",
+    "required": true,
+    "response": false,
+    "static": false,
+    "hasdefault": true,
+    "default": "text-davinci-003"
+  },
+  {
+    "label": "Prompt",
+    "name": "prompt",
+    "variableName": "#prompt#",
+    "propertytype": "textarea",
+    "required": true,
+    "response": false,
+    "static": false
+  },
+  {
+    "label": "Completion",
+    "name": "Completion",
+    "variableName": "#completion#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#ChatGPT.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false
+  }
+]

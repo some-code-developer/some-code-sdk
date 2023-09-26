@@ -1,0 +1,8 @@
+[
+  {
+    "label": "API Key",
+    "name": "password",
+    "propertytype": "password",
+    "hasdefault": false
+  }
+]
