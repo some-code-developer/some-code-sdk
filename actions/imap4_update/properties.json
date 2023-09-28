@@ -51,7 +51,7 @@
   {
     "label": "Execution Result",
     "name": "ExecutionResult",
-    "variableName": "#Imap4MailBoxes.ExecutionResult#",
+    "variableName": "#Imap4Update.ExecutionResult#",
     "propertytype": "variable",
     "required": false,
     "response": false

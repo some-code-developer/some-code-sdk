@@ -1,0 +1,12 @@
+{
+  "enabled": true,
+  "name": "Redis Set",
+  "description": "Redis Set",
+  "version": "1.0.0.0",
+  "notes": "",
+  "action_type": "Action",
+  "created_by": "John Smith",
+  "created_at": "2022-07-19 06:30:38",
+  "updated_by": "John Smith",
+  "updated_at": "2023-09-26 09:37:57"
+}

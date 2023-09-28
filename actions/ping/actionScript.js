@@ -1,4 +1,7 @@
-const ping = require("ping");
+// Documentation
+// https://www.npmjs.com/package/ping
+
+const ping = require('ping');
 
 actionParameters.ExecutionResult = SUCCESS;
 try {

@@ -1,3 +1,6 @@
+// Documentation
+// https://www.npmjs.com/package/openai
+
 const { OpenAI } = require('openai');
 actionParameters.ExecutionResult = SUCCESS;
 try {

@@ -1,0 +1,37 @@
+[
+  {
+    "label": "Connection",
+    "name": "connection",
+    "variableName": "#connection#",
+    "propertytype": "connection",
+    "required": false,
+    "response": false,
+    "connection_type": "Redis",
+    "static": true
+  },
+  {
+    "label": "Key",
+    "name": "key",
+    "variableName": "#key#",
+    "propertytype": "textarea",
+    "required": true,
+    "response": false,
+    "static": false
+  },
+  {
+    "label": "Value",
+    "name": "value",
+    "variableName": "#value#",
+    "propertytype": "textarea",
+    "required": true,
+    "response": false,
+    "static": false
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#RedisGet.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Host",
+    "name": "host",
+    "propertytype": "text",
+    "required": false
+  },
+  {
+    "label": "Port",
+    "name": "port",
+    "propertytype": "number",
+    "required": false
+  },
+  {
+    "label": "User",
+    "name": "username",
+    "propertytype": "text",
+    "required": false
+  },
+  {
+    "label": "Password",
+    "name": "password",
+    "propertytype": "password",
+    "required": false
+  }
+]
