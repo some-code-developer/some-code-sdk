@@ -1,4 +1,7 @@
-const convert = require("xml-js");
+// Documentation
+// https://www.npmjs.com/package/xml-js
+
+const convert = require('xml-js');
 actionParameters.ExecutionResult = SUCCESS;
 try {
   actionParameters.json = convert.xml2json(actionParameters.xml, { compact: true, spaces: 4 });

@@ -1,0 +1,30 @@
+[
+  {
+    "label": "Html",
+    "name": "html",
+    "variableName": "#html#",
+    "propertytype": "text",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Base Url",
+    "name": "baseUrl",
+    "variableName": "#baseUrl#",
+    "propertytype": "text",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "urls",
+    "name": "urls",
+    "variableName": "#urls#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#ParseSitemap.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

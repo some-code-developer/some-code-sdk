@@ -1,3 +1,6 @@
+// Documentation
+// https://www.npmjs.com/package/xml-js
+
 const convert = require('xml-js');
 actionParameters.ExecutionResult = SUCCESS;
 try {

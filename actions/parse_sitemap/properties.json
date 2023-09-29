@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Sitemap Html",
+    "name": "sitemap",
+    "variableName": "#sitemap#",
+    "propertytype": "text",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "urls",
+    "name": "urls",
+    "variableName": "#urls#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#ParseSitemap.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]
