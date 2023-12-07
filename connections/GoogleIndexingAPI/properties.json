@@ -1,0 +1,14 @@
+[
+  {
+    "label": "email",
+    "name": "email",
+    "propertytype": "email",
+    "required": true
+  },
+  {
+    "label": "Private Key",
+    "name": "password",
+    "propertytype": "password",
+    "required": true
+  }
+]

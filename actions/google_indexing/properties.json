@@ -1,0 +1,44 @@
+[
+  {
+    "label": "Connection",
+    "name": "connection",
+    "variableName": "#connection#",
+    "propertytype": "connection",
+    "required": true,
+    "connection_type": "GoogleIndexingAPI",
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Url",
+    "name": "url",
+    "variableName": "#url#",
+    "propertytype": "text",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Type",
+    "name": "type",
+    "variableName": "#type#",
+    "propertytype": "select",
+    "keys": "URL_DELETED\nURL_UPDATED",
+    "values": "URL_DELETED\nURL_UPDATED",
+    "hasdefault": true,
+    "default": "URL_UPDATED",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Response Body",
+    "name": "responseBody",
+    "variableName": "#responseBody#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#ExecuteShellCommand.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

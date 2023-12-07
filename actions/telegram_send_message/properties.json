@@ -1,0 +1,36 @@
+[
+  {
+    "label": "Connection",
+    "name": "connection",
+    "variableName": "#connection#",
+    "propertytype": "connection",
+    "required": true,
+    "response": false,
+    "connection_type": "Telegram",
+    "static": true
+  },
+  {
+    "label": "Chat Id",
+    "name": "chatId",
+    "variableName": "#chatId#",
+    "propertytype": "text",
+    "required": false,
+    "response": false,
+    "static": false
+  },
+  {
+    "label": "Message",
+    "name": "message",
+    "variableName": "#message#",
+    "propertytype": "textarea",
+    "required": true,
+    "response": false,
+    "static": false
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#TelegramSendMessage.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

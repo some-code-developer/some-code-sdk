@@ -5,16 +5,12 @@ const restore = require('./utils/action_restore.js');
 
 const workflowVariables = {};
 
-const action = 'apachekafka_send_message';
+const action = 'google_indexing';
 
 const actionParameters = {
-  connection: { host: process.env.KAFKA_HOST, port: process.env.KAFKA_PORT },
-  keyedMessage: false,
-  key: 'key',
-  message: 'message',
-  topic: 'some-topic',
+  connection: { email: process.env.GOOGLE_IDEXING_EMAIL, password: process.env.GOOGLE_IDEXING_KEY.split('\\n').join('\n') },
+  url: 'https://www.etl-tools.com/table/articles/',
+  type: 'URL_UPDATED',
 };
 
 executeAction(action, actionParameters, workflowVariables);
-
-//restore(action);

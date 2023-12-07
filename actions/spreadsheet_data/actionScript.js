@@ -14,7 +14,7 @@ try {
   await workbook.xlsx.readFile(fileName);
   const worksheet = workbook.getWorksheet(actionParameters.sheet);
   if (!worksheet) throw new Error(`Sheet: "${actionParameters.sheet}" not found`);
-  let rows = worksheet.getRows(0, worksheet.lastRow.number);
+  let rows = worksheet.getRows(1, worksheet.lastRow.number);
   actionParameters.data = rows.map((row) => row.values);
 } catch (e) {
   actionParameters.ExecutionResult = ERROR;
