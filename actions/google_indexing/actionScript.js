@@ -17,22 +17,24 @@ try {
 
   const url = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
 
+  const b = {
+    url: actionParameters.url,
+    type: actionParameters.type,
+  };
+
   const request = {
     method: 'POST',
-    // Your options, which must include the Content-Type and auth headers
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `Bearer ${tokens.access_token}`,
     },
-    auth: { bearer: tokens.access_token },
-    // Define contents here. The structure of the content is described in the next step.
-    json: {
-      url: actionParameters.url,
-      type: actionParameters.type,
-    },
+    body: JSON.stringify(b),
   };
 
   const response = await fetch(url, request);
-  actionParameters.responseBody = JSON.stringify(response.body);
+  rsp = JSON.stringify(await response.json(), null, 4);
+  logger.debug(rsp);
+  actionParameters.responseBody = rsp;
 } catch (e) {
   actionParameters.ExecutionResult = ERROR;
   stepExecutionInfo.message = e.message;
