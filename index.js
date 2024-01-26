@@ -1,16 +1,9 @@
 // Demonstrates running single action and restoring it
 
-const executeAction = require('./utils/action_execute.js');
-const restore = require('./utils/action_restore.js');
+const executeAction = require("./utils/action_execute.js");
+const restore = require("./utils/action_restore.js");
+const { actionParameters, workflowVariables, workflowParameters } = require("./actions/sql_import/devParameters.js");
 
-const workflowVariables = {};
-
-const action = 'google_indexing';
-
-const actionParameters = {
-  connection: { email: process.env.GOOGLE_IDEXING_EMAIL, password: process.env.GOOGLE_IDEXING_KEY.split('\\n').join('\n') },
-  url: 'https://www.etl-tools.com/table/articles/',
-  type: 'URL_UPDATED',
-};
+const action = "sql_import";
 
 executeAction(action, actionParameters, workflowVariables);

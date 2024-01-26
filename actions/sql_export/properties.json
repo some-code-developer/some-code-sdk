@@ -70,23 +70,7 @@
   {
     "label": "Execution Result",
     "name": "ExecutionResult",
-    "variableName": "#SqlCount.ExecutionResult#",
-    "propertytype": "variable",
-    "required": false,
-    "response": false
-  },
-  {
-    "label": "Data",
-    "name": "data",
-    "variableName": "#data#",
-    "propertytype": "variable",
-    "required": false,
-    "response": false
-  },
-  {
-    "label": "Execution Result",
-    "name": "ExecutionResult",
-    "variableName": "#SqlCheck.ExecutionResult#",
+    "variableName": "#SqlExport.ExecutionResult#",
     "propertytype": "variable",
     "required": false,
     "response": false

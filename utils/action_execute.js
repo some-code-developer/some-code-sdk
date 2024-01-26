@@ -1,12 +1,12 @@
-const path = require('node:path');
-const fs = require('fs');
-const vm = require('node:vm');
-const winston = require('winston');
+const path = require("node:path");
+const fs = require("fs");
+const vm = require("node:vm");
+const winston = require("winston");
 
-const { createLogger } = require('winston');
-const { screenFormat } = require('./winstonFormats');
+const { createLogger } = require("winston");
+const { screenFormat } = require("./winstonFormats");
 
-const { ERROR, SUCCESS, RUNNING, LOOP_END, NOT_STARTED } = require('./consts');
+const { ERROR, SUCCESS, RUNNING, LOOP_END, NOT_STARTED } = require("./consts");
 
 const createWorkflowLogger = (level) => {
   const transportsArray = [
@@ -16,7 +16,7 @@ const createWorkflowLogger = (level) => {
     }),
   ];
 
-  if (process.env.NODE_ENV === 'test' && level !== 'debug') {
+  if (process.env.NODE_ENV === "test" && level !== "debug") {
     transportsArray[0].silent = true;
   }
 
@@ -38,19 +38,19 @@ function readJSON(file) {
 }
 
 function getActionScript(actionCode) {
-  return fs.readFileSync(path.resolve('./actions', actionCode, 'actionScript.js'));
+  return fs.readFileSync(path.resolve("./actions", actionCode, "actionScript.js"));
 }
 
-const executeAction = async (actionToExecute, actionParameters, workflowVariables, level = 'info') => {
+const executeAction = async (actionToExecute, actionParameters, workflowVariables, level = "debug") => {
   // Init variables and const's
 
   let workflowParameters = {};
   let executionResult = SUCCESS;
 
-  const executionFolder = path.resolve('./executions', actionToExecute);
+  const executionFolder = path.resolve("./executions", actionToExecute);
 
   // Folder where action execution info is stored
-  const actionExecutionInfoFolder = path.resolve(executionFolder, 'actions-execution-info');
+  const actionExecutionInfoFolder = path.resolve(executionFolder, "actions-execution-info");
 
   // Creating logger
   const logger = createWorkflowLogger(level);
@@ -58,7 +58,7 @@ const executeAction = async (actionToExecute, actionParameters, workflowVariable
   const stepExecutionInfo = {
     action: actionToExecute,
     status: RUNNING,
-    message: '',
+    message: "",
     start: new Date().toISOString(),
   };
 
@@ -87,8 +87,8 @@ const executeAction = async (actionToExecute, actionParameters, workflowVariable
   // Logging object info
   lo = (o) => {
     for (const key in o) {
-      if (key === 'password') logger.debug(`${key}: ******`);
-      else if (typeof o[key] === 'object') {
+      if (key === "password") logger.debug(`${key}: ******`);
+      else if (typeof o[key] === "object") {
         // connection
         lo(o[key]);
       } else logger.debug(`${key}: ${o[key]}`);
@@ -112,7 +112,7 @@ const executeAction = async (actionToExecute, actionParameters, workflowVariable
   try {
     logger.debug(`Executing Action: ${actionToExecute}`);
 
-    logObject(actionParameters, 'Action Parameters:');
+    logObject(actionParameters, "Action Parameters:");
 
     let actionCode = getActionScript(actionToExecute);
 
@@ -122,7 +122,7 @@ const executeAction = async (actionToExecute, actionParameters, workflowVariable
       getLoopInfo,
       updateLoopInfo,
       resetLoopInfo,
-      workflowCode: 'workflowCode',
+      workflowCode: "workflowCode",
       workflowParameters,
       actionParameters,
       workflowVariables,
@@ -137,10 +137,10 @@ const executeAction = async (actionToExecute, actionParameters, workflowVariable
     vm.createContext(context); // Contextify the object.
     executionResult = await vm.runInNewContext(getCode(actionCode), context);
 
-    logObject(workflowVariables, 'Variables:');
+    logObject(workflowVariables, "Variables:");
   } catch (e) {
     logger.info(e.message);
-    logger.info(e.stack.replace(e.message, ''));
+    logger.info(e.stack.replace(e.message, ""));
     executionResult = ERROR;
   }
 

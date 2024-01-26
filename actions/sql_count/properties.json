@@ -30,14 +30,6 @@
     "response": false
   },
   {
-    "label": "Execution Result",
-    "name": "ExecutionResult",
-    "variableName": "#SqlCount.ExecutionResult#",
-    "propertytype": "variable",
-    "required": false,
-    "response": false
-  },
-  {
     "label": "Count",
     "name": "count",
     "variableName": "#count#",
@@ -48,7 +40,7 @@
   {
     "label": "Execution Result",
     "name": "ExecutionResult",
-    "variableName": "#SqlCheck.ExecutionResult#",
+    "variableName": "#SqlCount.ExecutionResult#",
     "propertytype": "variable",
     "required": false,
     "response": false

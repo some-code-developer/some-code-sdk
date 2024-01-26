@@ -1,0 +1,104 @@
+[
+  {
+    "label": "Target Connection",
+    "name": "targetConnection",
+    "variableName": "#targetConnection#",
+    "propertytype": "connection",
+    "required": true,
+    "connection_type": "Database",
+    "response": false,
+    "static": true
+  },
+  {
+    "label": "Target Table",
+    "name": "targetTable",
+    "variableName": "#table#",
+    "connectionName": "targetConnection",
+    "propertytype": "connectionTable",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Source File",
+    "name": "sourceFile",
+    "variableName": "#sourceFile#",
+    "propertytype": "filename",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Source File Format",
+    "name": "sourceFormat",
+    "variableName": "#sourceFormat#",
+    "propertytype": "select",
+    "default": "1",
+    "required": false,
+    "response": false,
+    "keys": "Fixed\nDelimited",
+    "values": "Fixed Widths\nDelimited"
+  },
+  {
+    "label": "Delimiter",
+    "name": "sourceDelimiter",
+    "variableName": "#sourceDelimiter#",
+    "propertytype": "textarea",
+    "default": ",",
+    "required": false,
+    "response": false
+  },
+  {
+    "label": "Quote",
+    "name": "sourceQuote",
+    "variableName": "#sourceQuote#",
+    "propertytype": "textarea",
+    "default": "\"",
+    "required": false,
+    "response": false
+  },
+  {
+    "label": "Lines To Skip",
+    "name": "linesToSkip",
+    "variableName": "#linesToSkip#",
+    "propertytype": "number",
+    "default": "0",
+    "minchecked": true,
+    "min": "0",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Max Lines To Read",
+    "name": "maxLinesToRead",
+    "variableName": "#maxLinesToRead#",
+    "propertytype": "number",
+    "default": "0",
+    "minchecked": true,
+    "min": "0",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Mapping",
+    "name": "mapping",
+    "variableName": "#mapping#",
+    "propertytype": "importMapping",
+    "required": false,
+    "response": false
+  },
+  {
+    "label": "Records Imported",
+    "name": "recordsImported",
+    "variableName": "#recordsImported#",
+    "propertytype": "variable",
+    "required": false,
+    "response": false
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#SqlImport.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false,
+    "response": false
+  }
+]
