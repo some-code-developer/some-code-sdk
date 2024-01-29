@@ -10,7 +10,7 @@ Here some tips:
 1 Start from small files
 2 Specify correct delimiter a quote
 3 Set lines to skip
-4 Id the date filed is already in YYYY-MM-DD HH:mm:ss.SSS format there is no need to specify date time format
+4 If the date field is already in YYYY-MM-DD HH:mm:ss.SSS format there is no need to specify date time format
 
 Found a bug? 
 Let us know on github
