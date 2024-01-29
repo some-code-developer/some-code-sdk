@@ -112,7 +112,7 @@ const getTablesSql = (type) => {
     return `SELECT table_schema|| '.' ||table_name as table_name FROM information_schema.tables WHERE table_schema not in ('information_schema','pg_catalog') and table_type='BASE TABLE' order by 1`;
 
   if (type === "mysql")
-    return `SELECT table_schema|| '.' ||table_name as table_name FROM information_schema.tables WHERE table_type ='BASE TABLE' and table_schema not in ('information_schema','mysql','performance_schema','sys') order by 1`;
+    return `SELECT CONCAT(table_schema,'.',table_name) as table_name FROM information_schema.tables WHERE table_type ='BASE TABLE' and table_schema not in ('information_schema','mysql','performance_schema','sys') order by 1`;
 
   if (type === "oracle")
     return `SELECT owner||'.'||Decode(INSTRB(table_name,' ', 1, 1),0,table_name,'"'||table_name||'"') as table_name FROM all_tables order by 1`;

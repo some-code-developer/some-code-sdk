@@ -3,8 +3,8 @@
     "label": "Connection Type",
     "name": "type",
     "propertytype": "select",
-    "keys": "sqlite\nmssql\npostgres\nmysql\noracle",
-    "values": "SQLite\nMS Sql Server\nPostgres\nMySql\nOracle",
+    "keys": "\nsqlite\nmssql\npostgres\nmysql\noracle",
+    "values": "Please Select Value\nSQLite\nMS Sql Server\nPostgres\nMySql\nOracle",
     "required": true
   },
   {

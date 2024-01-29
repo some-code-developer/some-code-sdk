@@ -6,10 +6,12 @@
 // mappingType: "2" Mapped to Variable
 
 const typeorm = require("typeorm");
+const sql = require("mssql");
 const { Buffer } = require("node:buffer");
 const fs = require("fs");
 const readline = require("readline");
-const sql = require("mssql");
+const dayjs = require("dayjs");
+const DATE_FORMAT = "YYYY-MM-DD HH:mm:ss.SSS";
 
 //NOTE: cleanPath function prevents access to the files or folders outside files directory
 const { cleanPath, secondsToHMS, getFieldsSql, getSplitStringFunction } = require("./utils");
@@ -59,6 +61,8 @@ function getTableColumns(fields) {
     if (actionParameters.mapping && actionParameters.mapping.mapping && actionParameters.mapping.mapping[i]) {
       item.mappingType = actionParameters.mapping.mapping[i].mappingType;
       item.fieldName = actionParameters.mapping.mapping[i].fieldName;
+      item.dateFormat = actionParameters.mapping.mapping[i].dateFormat;
+      item.variable = actionParameters.mapping.mapping[i].variable;
     }
     if (item.mappingType === "1") {
       // Mapped to source field
@@ -70,9 +74,9 @@ function getTableColumns(fields) {
 }
 
 async function importTypeORM() {
-  let rowIndex = 0;
   let tableColumns = [];
   let parameters = [];
+  let fieldNames = [];
   const dataRow = [];
 
   const connection = {
@@ -97,6 +101,7 @@ async function importTypeORM() {
   const fieldsQuery = getFieldsSql(actionParameters.targetConnection.type, actionParameters.targetTable);
 
   const fields = await dataSource.query(fieldsQuery);
+
   tableColumns = getTableColumns(fields);
 
   // Populating mapping array
@@ -112,26 +117,56 @@ async function importTypeORM() {
     });
 
   // Generating insert statement only for mapped fields (mappingType !== "0")
-  fieldNames = tableColumns.filter((item1) => item1.mappingType !== "0").map((item2) => `"${item2.name}"`);
 
+  // 1 List of fields
+  if (actionParameters.targetConnection.type === "mysql")
+    fieldNames = tableColumns.filter((item1) => item1.mappingType !== "0").map((item2) => "`" + item2.name + "`");
+  else fieldNames = tableColumns.filter((item1) => item1.mappingType !== "0").map((item2) => `"${item2.name}"`);
+
+  // 2 List of parameters
   if (actionParameters.targetConnection.type === "postgres") parameters = fieldNames.map((field, i) => `$${i + 1}`);
   else parameters = fieldNames.map((field) => "?");
+
   // TO DO: Test with oracle
 
+  if (fieldNames.length === 0) throw new Error(`No Field names`);
+
   const insertSQL = `INSERT INTO ${actionParameters.targetTable} (${fieldNames.join(",")}) VALUES (${parameters.join(",")}) `;
+
+  //logger.error(insertSQL);
 
   dataRow.length = fieldNames.length;
 
   // Assigning variables values
 
   tableColumns
-    .filter((item1, i) => item1.mappingType !== "0")
-    .forEach((item2) => {
-      if (item2.mappingType === "2")
-        dataRow[i] = workflowVariables[item2.fieldName] ? workflowVariables[item2.fieldName] : workflowParameters[item2.fieldName];
+    .filter((item1) => item1.mappingType !== "0") // Mapped to field or variable
+    .map((item2, no) => {
+      // Adding no
+      return { ...item2, no };
+    })
+    .filter((item3) => item3.mappingType === "2") // Mapped to variable
+    .forEach((item4) => {
+      dataRow[item4.no] = workflowVariables[item4.variable] ? workflowVariables[item4.variable] : workflowParameters[item4.variable];
     });
 
-  //logger.debug(insertSQL);
+  // Populating date formats array
+
+  dateFormats = tableColumns
+    .filter((item1) => item1.mappingType !== "0") // Mapped to field or variable
+    .map((item2, no) => {
+      // Adding no
+      return { ...item2, no };
+    })
+    .filter((item3) => item3.dateFormat) // Has date format
+    .map((item4) => {
+      return { no: item4.no, dateFormat: item4.dateFormat };
+    });
+
+  // logger.error(JSON.stringify(dateFormats, null, 4));
+  // logger.error(JSON.stringify(tableColumns, null, 4));
+  // logger.error(JSON.stringify(dataRow, null, 4));
+  // logger.debug(insertSQL);
 
   const rl = readline.createInterface({
     input: fs.createReadStream(sourceFile),
@@ -142,18 +177,23 @@ async function importTypeORM() {
   for await (const line of rl) {
     linesRead++;
     if (linesRead > linesToSkip) {
-      rowIndex++;
       data = splitFunction(line);
 
       //Only copying data for the mapped fields
       for (let i = 0; i < mapping.length; i++) dataRow[mapping[i].no] = data[mapping[i].sourceFieldId];
+
+      //Only copying data for the fields with date formats assigned
+      for (let i = 0; i < dateFormats.length; i++)
+        dataRow[dateFormats[i].no] = dayjs(dataRow[dateFormats[i].no], dataRow[dateFormats[i].dateFormat]).format(DATE_FORMAT);
+
       // Adding Data
       try {
         await dataSource.query(insertSQL, dataRow);
         totalRecords++;
       } catch (e) {
         logger.error(e.message);
-        logger.debug("Values:", JSON.stringify(dataRow, null, 4));
+        logger.error("Values:");
+        logger.error(JSON.stringify(dataRow, null, 4));
       }
 
       printProgress(line);
@@ -213,18 +253,37 @@ async function importSQLServer() {
 
   dataRow.length = tableColumns.length;
 
-  //Assign variables
-  for (let i = 0; i < tableColumns.length; i++)
-    if (tableColumns[i].mappingType === "2")
-      dataRow[i] = workflowVariables[tableColumns[i].fieldName]
-        ? workflowVariables[tableColumns[i].fieldName]
-        : workflowParameters[tableColumns[i].fieldName];
+  // Assigning variables values
+
+  tableColumns
+    .filter((item1) => item1.mappingType === "2") // Mapped to variable
+    .forEach((item2) => {
+      dataRow[item2.no] = workflowVariables[item2.variable] ? workflowVariables[item2.variable] : workflowParameters[item2.variable];
+    });
+
+  //logger.error(JSON.stringify(dataRow, null, 4));
 
   // Populating mapping array
+
   mapping = tableColumns
     .filter((item1) => item1.sourceFieldId > -1)
     .map((item) => {
       return { no: item.no, sourceFieldId: item.sourceFieldId };
+    });
+
+  if (mapping.length === 0) throw new Error(`No Field names`);
+
+  // Populating Dateformat array
+
+  dateFormats = tableColumns
+    .map((item1, no) => {
+      // Adding no
+      return { ...item1, no };
+    })
+    .filter((item2) => item2.mappingType !== "0") // Mapped to field or variable
+    .filter((item3) => item3.dateFormat) // Has date format
+    .map((item4) => {
+      return { no: item4.no, dateFormat: item4.dateFormat };
     });
 
   // Create a table object
@@ -251,6 +310,12 @@ async function importSQLServer() {
       //Only copying data for the mapped fields
       for (let i = 0; i < mapping.length; i++) dataRow[mapping[i].no] = data[mapping[i].sourceFieldId];
 
+      //Only assign data for the fields with date formats assigned
+      for (let i = 0; i < dateFormats.length; i++)
+        dataRow[dateFormats[i].no] = dayjs(dataRow[dateFormats[i].no], dataRow[dateFormats[i].dateFormat]).format(DATE_FORMAT);
+
+      //logger.error(JSON.stringify(dataRow, null, 4));
+
       table.rows.add(...dataRow);
       if (rowIndex === 10000) {
         const result = await request.bulk(table);
@@ -276,6 +341,8 @@ try {
   if (!actionParameters.mapping) throw new Error(`Missing Mapping`);
   sourceFile = cleanPath(actionParameters.sourceFile);
   if (!fs.existsSync(sourceFile)) throw new Error(`File ${sourceFile} not found`);
+
+  if (typeof actionParameters.mapping === "string") actionParameters.mapping = JSON.parse(actionParameters.mapping);
 
   // File size
   totalSize = fs.statSync(sourceFile).size;
