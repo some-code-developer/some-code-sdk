@@ -1,5 +1,22 @@
 // Documentation
 // https://typeorm.io/
+// https://www.npmjs.com/package/mssql
+/*
+
+Importing data is a very difficult task and it might fail due to various reasons
+
+Here some tips:
+
+1 Start from small files
+2 Specify correct delimiter a quote
+3 Set lines to skip
+4 Id the date filed is already in YYYY-MM-DD HH:mm:ss.SSS format there is no need to specify date time format
+
+Found a bug? 
+Let us know on github
+https://github.com/some-code-developer/sdk
+
+*/
 
 // mappingType: "0" Not Mapped
 // mappingType: "1" Mapped to Field
