@@ -1,7 +1,7 @@
 {
   "enabled": true,
   "name": "Google Indexing API",
-  "description": "Execute Shell Command",
+  "description": "Google Indexing API",
   "version": "1.0.0.0",
   "notes": "",
   "action_type": "Action",
