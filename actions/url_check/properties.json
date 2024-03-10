@@ -1,0 +1,28 @@
+[
+  {
+    "label": "Url",
+    "name": "url",
+    "variableName": "#url#",
+    "propertytype": "text",
+    "required": true,
+    "response": false
+  },
+  {
+    "label": "Response Status",
+    "name": "responseStatus",
+    "variableName": "#responseStatus#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Response Status Text",
+    "name": "responseStatusText",
+    "variableName": "#responseStatusText#",
+    "propertytype": "variable"
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#HttpRequest.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

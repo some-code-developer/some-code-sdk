@@ -1,0 +1,28 @@
+[
+  {
+    "label": "File Name",
+    "name": "file",
+    "variableName": "#file#",
+    "propertytype": "filename",
+    "showhintchecked": true,
+    "hint": "File to check",
+    "minchecked": true,
+    "min": "1",
+    "required": true
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#FileToArray.ExecutionResult#",
+    "propertytype": "variable",
+    "required": false
+  },
+    {
+    "label": "Data",
+    "name": "data",
+    "variableName": "#data#",
+    "propertytype": "variable",
+    "required": false,
+    "response": false
+  }
+]
