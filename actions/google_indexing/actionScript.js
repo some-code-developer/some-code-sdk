@@ -32,9 +32,9 @@ try {
   };
 
   const response = await fetch(url, request);
-  rsp = JSON.stringify(await response.json(), null, 4);
-  logger.debug(rsp);
-  actionParameters.responseBody = rsp;
+  rsp = await response.json();
+  actionParameters.responseBody = JSON.stringify(rsp, null, 4);
+  if (rsp.error) throw new Error(rsp.error.message); 
 } catch (e) {
   actionParameters.ExecutionResult = ERROR;
   stepExecutionInfo.message = e.message;
