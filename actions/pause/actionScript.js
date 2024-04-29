@@ -4,10 +4,12 @@ actionParameters.ExecutionResult = SUCCESS;
 
 try {
   let buffer = actionParameters.Pause.split(":");
-  let minutes = parseInt(buffer[0]);
-  let seconds = parseInt(buffer[1]);
+  let hours = parseInt(buffer[0]);
+  let minutes = parseInt(buffer[1]);
+  let seconds = parseInt(buffer[2]);
 
   const startDateTime = new Date();
+  startDateTime.setHours(startDateTime.getHours() + hours);
   startDateTime.setMinutes(startDateTime.getMinutes() + minutes);
   startDateTime.setSeconds(startDateTime.getSeconds() + seconds);
 
