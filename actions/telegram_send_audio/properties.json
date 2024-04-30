@@ -1,0 +1,38 @@
+[
+  {
+    "label": "Connection",
+    "name": "connection",
+    "variableName": "#connection#",
+    "propertytype": "connection",
+    "required": true,
+    "response": false,
+    "connection_type": "Telegram",
+    "static": true
+  },
+  {
+    "label": "Chat Id",
+    "name": "chatId",
+    "variableName": "#chatId#",
+    "propertytype": "text",
+    "required": false,
+    "response": false,
+    "static": false
+  },
+  {
+    "label": "File Name",
+    "name": "file",
+    "variableName": "#file#",
+    "propertytype": "filename",
+    "showhintchecked": true,
+    "hint": "File Name",
+    "minchecked": true,
+    "min": "1",
+    "required": true
+  },
+  {
+    "label": "Execution Result",
+    "name": "ExecutionResult",
+    "variableName": "#TelegramSendAudio.ExecutionResult#",
+    "propertytype": "variable"
+  }
+]

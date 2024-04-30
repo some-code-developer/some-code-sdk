@@ -1,0 +1,12 @@
+{
+  "enabled": true,
+  "name": "Telegram Send File",
+  "description": "Telegram Send File",
+  "version": "1.0.0.0",
+  "notes": "",
+  "action_type": "Action",
+  "created_by": "John Smith",
+  "created_at": "2023-06-11 05:53:14",
+  "updated_by": "John Smith",
+  "updated_at": "2023-07-23 11:33:24"
+}

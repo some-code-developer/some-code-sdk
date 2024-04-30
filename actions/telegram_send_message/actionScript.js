@@ -21,7 +21,7 @@ try {
     body: JSON.stringify(messagePayload),
   });
 
-  if (response.status !== 200) throw response.statusText;
+  if (response.status !== 200) throw new Error(`Failed to send message to Telegram: ${response.status} ${response.statusText}`);
 } catch (e) {
   actionParameters.ExecutionResult = ERROR;
   stepExecutionInfo.message = e.message;
