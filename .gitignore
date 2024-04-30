@@ -10,3 +10,4 @@ log
 *.log
 yarn.json
 devParameters.js
+yarn.lock
