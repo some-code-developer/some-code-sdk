@@ -1,4 +1,4 @@
-const { v4: uuidv4 } = require("uuid");
+const crypto = require('node:crypto');
 actionParameters.ExecutionResult = SUCCESS;
-actionParameters.guid = uuidv4();
+actionParameters.guid = crypto.randomUUID();
 return actionParameters.ExecutionResult;

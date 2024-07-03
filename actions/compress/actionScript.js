@@ -1,12 +1,16 @@
-const fs = require('fs');
-const path = require('path');
-const sevenBin = require('7zip-bin');
-const Seven = require('node-7z');
-const pathTo7zip = sevenBin.path7za;
-const anymatch = require('anymatch');
+const fs = require("fs");
+const path = require("path");
+const sevenBin = require("7zip-bin");
+const Seven = require("node-7z");
+const anymatch = require("anymatch");
 
 //NOTE: cleanPath function prevents access to the files or folders outside files directory
-const { cleanPath } = require('./utils');
+const { cleanPath } = require("./utils");
+
+//NOTE: Calculating path to zip
+let pathTo7zip = "";
+if (sevenBin.path7za.includes("snapshot")) pathTo7zip = path.basename(sevenBin.path7za);
+else pathTo7zip = sevenBin.path7za.replace("app.asar", "app.asar.unpacked");
 
 actionParameters.ExecutionResult = SUCCESS;
 
@@ -21,11 +25,11 @@ function compress(file, path) {
 
     const sevenProcess = Seven.add(file, path, parameters);
 
-    sevenProcess.on('error', (err) => {
+    sevenProcess.on("error", (err) => {
       reject(err);
     });
 
-    sevenProcess.on('end', (info) => {
+    sevenProcess.on("end", (info) => {
       resolve();
     });
   });
