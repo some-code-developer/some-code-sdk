@@ -2,6 +2,7 @@ const os = require("node:os");
 const fs = require("fs");
 const sevenBin = require("7zip-bin");
 const Seven = require("node-7z");
+const path = require("path");
 
 //NOTE: Calculating path to zip
 let pathTo7zip = "";

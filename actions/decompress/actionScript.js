@@ -1,5 +1,6 @@
 const sevenBin = require("7zip-bin");
 const Seven = require("node-7z");
+const path = require("path");
 
 //NOTE: cleanPath function prevents access to the files or folders outside files directory
 const { cleanPath } = require("./utils");
