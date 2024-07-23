@@ -1,7 +1,7 @@
 const Imap = require("node-imap");
 const path = require("path");
 const fs = require("fs");
-const { v4: generateId } = require("uuid");
+const crypto = require("node:crypto");
 const { Base64Decode } = require("base64-stream");
 
 // Documentation
@@ -219,7 +219,7 @@ function getMessage() {
           });
 
           f.on("message", (msg, seqno) => {
-            const messageId = generateId();
+            const messageId = crypto.randomUUID();
             logger.debug(`${messageId} - Message #${seqno}`);
             const prefix = `${messageId} - ${seqno}`;
             msg.on("body", (stream, info) => {

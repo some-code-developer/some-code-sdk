@@ -21,11 +21,14 @@ https://github.com/some-code-developer/sdk
 // mappingType: "0" Not Mapped
 // mappingType: "1" Mapped to Field
 // mappingType: "2" Mapped to Variable
+// mappingType: "3" Row Number
+// mappingType: "4" GUID
 
 const typeorm = require("typeorm");
 const sql = require("mssql");
 const { Buffer } = require("node:buffer");
 const fs = require("fs");
+const crypto = require("node:crypto");
 const readline = require("readline");
 const dayjs = require("dayjs");
 const DATE_FORMAT = "YYYY-MM-DD HH:mm:ss.SSS";
@@ -157,7 +160,7 @@ async function importTypeORM() {
   // Assigning variables values
 
   tableColumns
-    .filter((item1) => item1.mappingType !== "0") // Mapped to field or variable
+    .filter((item1) => item1.mappingType !== "0") // Mapped to something
     .map((item2, no) => {
       // Adding no
       return { ...item2, no };
@@ -202,6 +205,30 @@ async function importTypeORM() {
       //Only copying data for the fields with date formats assigned
       for (let i = 0; i < dateFormats.length; i++)
         dataRow[dateFormats[i].no] = dayjs(dataRow[dateFormats[i].no], dataRow[dateFormats[i].dateFormat]).format(DATE_FORMAT);
+
+      // Assigning GUID
+      tableColumns
+        .filter((item1) => item1.mappingType !== "0") // Mapped to something
+        .map((item2, no) => {
+          // Adding no
+          return { ...item2, no };
+        })
+        .filter((item3) => item3.mappingType === "4") // GUID
+        .forEach((item4) => {
+          dataRow[item4.no] = crypto.randomUUID();
+        });
+
+      // Assigning Row Number
+      tableColumns
+        .filter((item1) => item1.mappingType !== "0") // Mapped to something
+        .map((item2, no) => {
+          // Adding no
+          return { ...item2, no };
+        })
+        .filter((item3) => item3.mappingType === "3") // Row number
+        .forEach((item4) => {
+          dataRow[item4.no] = linesRead;
+        });
 
       // Adding Data
       try {
@@ -330,6 +357,30 @@ async function importSQLServer() {
       //Only assign data for the fields with date formats assigned
       for (let i = 0; i < dateFormats.length; i++)
         dataRow[dateFormats[i].no] = dayjs(dataRow[dateFormats[i].no], dataRow[dateFormats[i].dateFormat]).format(DATE_FORMAT);
+
+      // Assigning GUID
+      tableColumns
+        .filter((item1) => item1.mappingType !== "0") // Mapped to something
+        .map((item2, no) => {
+          // Adding no
+          return { ...item2, no };
+        })
+        .filter((item3) => item3.mappingType === "4") // GUID
+        .forEach((item4) => {
+          dataRow[item4.no] = crypto.randomUUID();
+        });
+
+      // Assigning Row Number
+      tableColumns
+        .filter((item1) => item1.mappingType !== "0") // Mapped to something
+        .map((item2, no) => {
+          // Adding no
+          return { ...item2, no };
+        })
+        .filter((item3) => item3.mappingType === "3") // Row number
+        .forEach((item4) => {
+          dataRow[item4.no] = linesRead;
+        });
 
       //logger.error(JSON.stringify(dataRow, null, 4));
 
