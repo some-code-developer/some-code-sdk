@@ -15,12 +15,12 @@ try {
 
   if (loopIndex < loopArray.length) {
     await updateLoopInfo(loopIndex);
-    actionParameters.index = loopIndex;
     actionParameters.value = loopArray[loopIndex];
   } else {
     await resetLoopInfo();
     actionParameters.ExecutionResult = LOOP_END;
   }
+  actionParameters.index = loopIndex;
 } catch (e) {
   actionParameters.ExecutionResult = ERROR;
   stepExecutionInfo.message = e.message;

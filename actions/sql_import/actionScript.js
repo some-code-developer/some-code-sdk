@@ -24,8 +24,13 @@ https://github.com/some-code-developer/sdk
 // mappingType: "3" Row Number
 // mappingType: "4" GUID
 
+// When importing data into MS SQL all fields are used for insert
+// for the rest of the databases only 'Mapped' fields are used for insert
+
 const typeorm = require("typeorm");
 const sql = require("mssql");
+const pg = require("pg");
+const { from } = require("pg-copy-streams");
 const { Buffer } = require("node:buffer");
 const fs = require("fs");
 const crypto = require("node:crypto");
@@ -93,6 +98,173 @@ function getTableColumns(fields) {
   });
 }
 
+function assignVariables(tableColumns, dataRow) {
+  tableColumns
+    .filter((item1) => item1.mappingType !== "0") // Mapped to something
+    .map((item2, no) => {
+      // Adding no
+      return { ...item2, no };
+    })
+    .filter((item3) => item3.mappingType === "2") // Mapped to variable
+    .forEach((item4) => {
+      dataRow[item4.no] = workflowVariables[item4.variable] ? workflowVariables[item4.variable] : workflowParameters[item4.variable];
+    });
+}
+
+function getMapping(tableColumns) {
+  return tableColumns
+    .filter((item1) => item1.mappingType !== "0") // Mapped to field or variable
+    .map((item2, no) => {
+      // Adding no
+      return { ...item2, no };
+    })
+    .filter((item3) => item3.mappingType === "1") // Mapped to field
+    .map((item4) => {
+      return { no: item4.no, sourceFieldId: item4.sourceFieldId };
+    });
+}
+
+function getDateFormats(tableColumns) {
+  return tableColumns
+    .filter((item1) => item1.mappingType !== "0") // Mapped to something
+    .map((item2, no) => {
+      // Adding no
+      return { ...item2, no };
+    })
+    .filter((item3) => item3.dateFormat) // Has date format
+    .map((item4) => {
+      return { no: item4.no, dateFormat: item4.dateFormat };
+    });
+}
+
+function getRowNs(tableColumns) {
+  return tableColumns
+    .filter((item1) => item1.mappingType !== "0") // Mapped to something
+    .map((item2, no) => {
+      // Adding no
+      return { ...item2, no };
+    })
+    .filter((item3) => item3.mappingType === "3") // mapped to guid
+    .map((item4) => {
+      return item4.no;
+    });
+}
+
+function getGuids(tableColumns) {
+  return tableColumns
+    .filter((item1) => item1.mappingType !== "0") // Mapped to something
+    .map((item2, no) => {
+      // Adding no
+      return { ...item2, no };
+    })
+    .filter((item3) => item3.mappingType === "4") // mapped to RowNo
+    .map((item4) => {
+      return item4.no;
+    });
+}
+
+async function importPostres() {
+  let tableColumns = [];
+  let fieldNames = [];
+  const dataRow = [];
+
+  const connection = {
+    host: actionParameters.targetConnection.host,
+    port: Number(actionParameters.targetConnection.port),
+    user: actionParameters.targetConnection.username,
+    password: actionParameters.targetConnection.password,
+    database: actionParameters.targetConnection.database,
+  };
+
+  const pool = new pg.Pool(connection);
+  const client = await pool.connect();
+
+  try {
+    const fieldsQuery = getFieldsSql("postgres", actionParameters.targetTable);
+
+    const fields = await client.query(fieldsQuery);
+
+    logger.debug("importPostres");
+
+    tableColumns = getTableColumns(fields.rows);
+
+    // Populating mapping array
+    mapping = getMapping(tableColumns);
+
+    // Generating COPY statement only for mapped fields (mappingType !== "0")
+
+    fieldNames = tableColumns.filter((item1) => item1.mappingType !== "0").map((item2) => `"${item2.name}"`);
+
+    if (fieldNames.length === 0) throw new Error(`No Field names`);
+
+    const query = `COPY ${actionParameters.targetTable} (${fieldNames.join(",")}) FROM STDIN WITH CSV DELIMITER AS \'\t\'`;
+
+    const dataStream = client.query(from(query));
+
+    dataRow.length = fieldNames.length;
+
+    // Assigning variables values
+    assignVariables(tableColumns, dataRow);
+
+    // Populating date formats array
+    dateFormats = getDateFormats(tableColumns);
+
+    // Populating guids array
+    guids = getGuids(tableColumns);
+
+    // Populating RowNo array
+    rowNs = getRowNs(tableColumns);
+
+    //logger.error(JSON.stringify(dateFormats, null, 4));
+    //logger.error(JSON.stringify(tableColumns, null, 4));
+    //logger.error(JSON.stringify(dataRow, null, 4));
+    //logger.error(JSON.stringify(rowNs, null, 4));
+    //logger.error(JSON.stringify(guids, null, 4));
+
+    const rl = readline.createInterface({
+      input: fs.createReadStream(sourceFile),
+      crlfDelay: Infinity,
+    });
+
+    // Reading data line by line
+    for await (const line of rl) {
+      linesRead++;
+      if (linesRead > linesToSkip) {
+        data = splitFunction(line);
+
+        //Only copying data for the mapped fields
+        for (let i = 0; i < mapping.length; i++) dataRow[mapping[i].no] = data[mapping[i].sourceFieldId];
+
+        //Only copying data for the fields with date formats assigned
+        for (let i = 0; i < dateFormats.length; i++)
+          dataRow[dateFormats[i].no] = dayjs(dataRow[dateFormats[i].no], dataRow[dateFormats[i].dateFormat]).format(DATE_FORMAT);
+
+        // Assigning  guids
+        for (let i = 0; i < guids.length; i++) dataRow[guids[i]] = crypto.randomUUID();
+
+        // Assigning  RowNs
+        for (let i = 0; i < rowNs.length; i++) dataRow[rowNs[i]] = linesRead;
+
+        // Adding Data
+        try {
+          dataStream.write(`${dataRow.join("\t")}\n`);
+          totalRecords++;
+        } catch (e) {
+          logger.error(e.message);
+          logger.error("Values:");
+          logger.error(JSON.stringify(dataRow, null, 4));
+        }
+        printProgress(line);
+        if (linesRead === maxLinesToRead + linesToSkip) break;
+      }
+    }
+    dataStream.end();
+  } finally {
+    client.release();
+  }
+  await pool.end();
+}
+
 async function importTypeORM() {
   let tableColumns = [];
   let parameters = [];
@@ -125,16 +297,7 @@ async function importTypeORM() {
   tableColumns = getTableColumns(fields);
 
   // Populating mapping array
-  mapping = tableColumns
-    .filter((item1) => item1.mappingType !== "0") // Mapped to field or variable
-    .map((item2, no) => {
-      // Adding no
-      return { ...item2, no };
-    })
-    .filter((item3) => item3.mappingType === "1") // Mapped to field
-    .map((item4) => {
-      return { no: item4.no, sourceFieldId: item4.sourceFieldId };
-    });
+  mapping = getMapping(tableColumns);
 
   // Generating insert statement only for mapped fields (mappingType !== "0")
 
@@ -158,35 +321,24 @@ async function importTypeORM() {
   dataRow.length = fieldNames.length;
 
   // Assigning variables values
-
-  tableColumns
-    .filter((item1) => item1.mappingType !== "0") // Mapped to something
-    .map((item2, no) => {
-      // Adding no
-      return { ...item2, no };
-    })
-    .filter((item3) => item3.mappingType === "2") // Mapped to variable
-    .forEach((item4) => {
-      dataRow[item4.no] = workflowVariables[item4.variable] ? workflowVariables[item4.variable] : workflowParameters[item4.variable];
-    });
+  assignVariables(tableColumns, dataRow);
 
   // Populating date formats array
+  dateFormats = getDateFormats(tableColumns);
 
-  dateFormats = tableColumns
-    .filter((item1) => item1.mappingType !== "0") // Mapped to field or variable
-    .map((item2, no) => {
-      // Adding no
-      return { ...item2, no };
-    })
-    .filter((item3) => item3.dateFormat) // Has date format
-    .map((item4) => {
-      return { no: item4.no, dateFormat: item4.dateFormat };
-    });
+  // Populating guids array
+  guids = getGuids(tableColumns);
 
-  // logger.error(JSON.stringify(dateFormats, null, 4));
-  // logger.error(JSON.stringify(tableColumns, null, 4));
-  // logger.error(JSON.stringify(dataRow, null, 4));
-  // logger.debug(insertSQL);
+  // Populating RowNo array
+  rowNs = getRowNs(tableColumns);
+
+  //logger.error(JSON.stringify(dateFormats, null, 4));
+  //logger.error(JSON.stringify(tableColumns, null, 4));
+  //logger.error(JSON.stringify(dataRow, null, 4));
+  //logger.error(JSON.stringify(rowNs, null, 4));
+  //logger.error(JSON.stringify(guids, null, 4));
+
+  //logger.debug(insertSQL);
 
   const rl = readline.createInterface({
     input: fs.createReadStream(sourceFile),
@@ -206,29 +358,11 @@ async function importTypeORM() {
       for (let i = 0; i < dateFormats.length; i++)
         dataRow[dateFormats[i].no] = dayjs(dataRow[dateFormats[i].no], dataRow[dateFormats[i].dateFormat]).format(DATE_FORMAT);
 
-      // Assigning GUID
-      tableColumns
-        .filter((item1) => item1.mappingType !== "0") // Mapped to something
-        .map((item2, no) => {
-          // Adding no
-          return { ...item2, no };
-        })
-        .filter((item3) => item3.mappingType === "4") // GUID
-        .forEach((item4) => {
-          dataRow[item4.no] = crypto.randomUUID();
-        });
+      // Assigning  guids
+      for (let i = 0; i < guids.length; i++) dataRow[guids[i]] = crypto.randomUUID();
 
-      // Assigning Row Number
-      tableColumns
-        .filter((item1) => item1.mappingType !== "0") // Mapped to something
-        .map((item2, no) => {
-          // Adding no
-          return { ...item2, no };
-        })
-        .filter((item3) => item3.mappingType === "3") // Row number
-        .forEach((item4) => {
-          dataRow[item4.no] = linesRead;
-        });
+      // Assigning  RowNs
+      for (let i = 0; i < rowNs.length; i++) dataRow[rowNs[i]] = linesRead;
 
       // Adding Data
       try {
@@ -330,6 +464,30 @@ async function importSQLServer() {
       return { no: item4.no, dateFormat: item4.dateFormat };
     });
 
+  // Populating Guids array
+  guids = tableColumns
+    .map((item1, no) => {
+      // Adding no
+      return { ...item1, no };
+    })
+    .filter((item2) => item2.mappingType !== "0") // Mapped to field or variable
+    .filter((item3) => item3.mappingType === "4") // Mapped to GUID
+    .map((item4) => {
+      return item4.no;
+    });
+
+  // Populating rowNs array
+  rowNs = tableColumns
+    .map((item1, no) => {
+      // Adding no
+      return { ...item1, no };
+    })
+    .filter((item2) => item2.mappingType !== "0") // Mapped to field or variable
+    .filter((item3) => item3.mappingType === "3") // Mapped to Recno
+    .map((item4) => {
+      return item4.no;
+    });
+
   // Create a table object
   const table = new sql.Table(actionParameters.targetTable);
 
@@ -358,29 +516,11 @@ async function importSQLServer() {
       for (let i = 0; i < dateFormats.length; i++)
         dataRow[dateFormats[i].no] = dayjs(dataRow[dateFormats[i].no], dataRow[dateFormats[i].dateFormat]).format(DATE_FORMAT);
 
-      // Assigning GUID
-      tableColumns
-        .filter((item1) => item1.mappingType !== "0") // Mapped to something
-        .map((item2, no) => {
-          // Adding no
-          return { ...item2, no };
-        })
-        .filter((item3) => item3.mappingType === "4") // GUID
-        .forEach((item4) => {
-          dataRow[item4.no] = crypto.randomUUID();
-        });
+      // Assigning  guids
+      for (let i = 0; i < guids.length; i++) dataRow[guids[i]] = crypto.randomUUID();
 
-      // Assigning Row Number
-      tableColumns
-        .filter((item1) => item1.mappingType !== "0") // Mapped to something
-        .map((item2, no) => {
-          // Adding no
-          return { ...item2, no };
-        })
-        .filter((item3) => item3.mappingType === "3") // Row number
-        .forEach((item4) => {
-          dataRow[item4.no] = linesRead;
-        });
+      // Assigning  RowNs
+      for (let i = 0; i < rowNs.length; i++) dataRow[rowNs[i]] = linesRead.toString();
 
       //logger.error(JSON.stringify(dataRow, null, 4));
 
@@ -424,6 +564,7 @@ try {
   if (maxLinesToRead > 0) logger.debug(`Reading up to ${maxLinesToRead} line(s)`);
 
   if (actionParameters.targetConnection.type === "mssql") await importSQLServer();
+  else if (actionParameters.targetConnection.type === "postgres") await importPostres();
   else await importTypeORM();
 
   actionParameters.recordsImported = totalRecords;
@@ -438,6 +579,7 @@ try {
   logger.debug(`Time taken ${secondsToHMS(seconds)}`);
 } catch (e) {
   actionParameters.ExecutionResult = ERROR;
+  actionParameters.ExecutionMessage = e.message;
   stepExecutionInfo.message = e.message;
   logger.error(e.message);
   logger.error(e.stack.replace(e.message, ""));

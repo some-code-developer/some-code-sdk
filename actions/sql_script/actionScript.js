@@ -1,14 +1,14 @@
 // Documentation
 // https://typeorm.io/
 
-const typeorm = require('typeorm');
+const typeorm = require("typeorm");
 actionParameters.ExecutionResult = SUCCESS;
 
 try {
   if (!actionParameters.sql) throw new Error(`Missing Sql`);
 
   const connection = {
-    name: 'sql_script',
+    name: "sql_script",
     type: actionParameters.connection.type,
     host: actionParameters.connection.host,
     port: Number(actionParameters.connection.port),
@@ -42,8 +42,10 @@ try {
   await dataSource.destroy();
 } catch (e) {
   actionParameters.ExecutionResult = ERROR;
+  actionParameters.ExecutionMessage = e.message;
   stepExecutionInfo.message = e.message;
   logger.error(e.message);
+  logger.error(e.stack.replace(e.message, ""));
 }
 
 return actionParameters.ExecutionResult;

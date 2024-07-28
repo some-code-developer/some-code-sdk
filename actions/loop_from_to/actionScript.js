@@ -6,13 +6,12 @@ try {
   let loopIndex = Number(actionParameters.from);
   if (loopInfo.loopStatus === RUNNING) loopIndex = loopInfo.loopIndex + 1;
 
-  if (loopIndex <= Number(actionParameters.to)) {
-    await updateLoopInfo(loopIndex);
-    actionParameters.index = loopIndex;
-  } else {
+  if (loopIndex <= Number(actionParameters.to)) await updateLoopInfo(loopIndex);
+  else {
     await resetLoopInfo();
     actionParameters.ExecutionResult = LOOP_END;
   }
+  actionParameters.index = loopIndex;
 } catch (e) {
   actionParameters.ExecutionResult = ERROR;
   stepExecutionInfo.message = e.message;
