@@ -2,7 +2,7 @@
   "enabled": true,
   "name": "SQL Script",
   "description": "SQL Script",
-  "version": "1.0.0.1",
+  "version": "1.0.0.2",
   "notes": "",
   "action_type": "Action",
   "created_by": "John Smith",
