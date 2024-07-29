@@ -75,7 +75,7 @@
   {
     "label": "Hook Data",
     "name": "hookData",
-    "variableName": "#RabbitMQHook.hookData#",
+    "variableName": "#hookData#",
     "propertytype": "variable",
     "required": false,
     "response": false

@@ -2,7 +2,7 @@
   {
     "label": "IF Expression",
     "name": "Expression",
-    "variableName": "#IF.Expression#",
+    "variableName": "#Expression#",
     "propertytype": "text",
     "showhintchecked": true,
     "hint": "The expression must return true or false",
@@ -15,7 +15,7 @@
   {
     "label": "Execution Result",
     "name": "ExecutionResult",
-    "variableName": "#IF.ExecutionResult#",
+    "variableName": "#ExecutionResult#",
     "propertytype": "variable",
     "required": false
   }

@@ -39,7 +39,7 @@
   {
     "label": "Execution Result",
     "name": "ExecutionResult",
-    "variableName": "#SqlScript.ExecutionResult#",
+    "variableName": "#ExecutionResult#",
     "propertytype": "variable",
     "required": false,
     "response": false

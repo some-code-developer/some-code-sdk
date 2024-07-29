@@ -22,9 +22,17 @@
     "required": true
   },
   {
+    "label": "Execution Message",
+    "name": "ExecutionMessage",
+    "variableName": "#ExecutionMessage#",
+    "propertytype": "variable",
+    "required": false,
+    "response": false
+  },
+  {
     "label": "Execution Result",
     "name": "ExecutionResult",
-    "variableName": "#SpreadsheetDelete.ExecutionResult#",
+    "variableName": "#ExecutionResult#",
     "propertytype": "variable",
     "required": false
   }

@@ -2,7 +2,7 @@
   "enabled": true,
   "name": "URL Check",
   "description": "Checks if web page exists on the server",
-  "version": "1.0.0.0",
+  "version": "1.0.0.1",
   "notes": "",
   "action_type": "Action",
   "created_by": "John Smith",

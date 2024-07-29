@@ -37,7 +37,9 @@ try {
   if (rsp.error) throw new Error(rsp.error.message); 
 } catch (e) {
   actionParameters.ExecutionResult = ERROR;
+  actionParameters.ExecutionMessage = e.message;
   stepExecutionInfo.message = e.message;
   logger.error(e.message);
+  logger.error(e.stack.replace(e.message, ""));
 }
 return actionParameters.ExecutionResult;

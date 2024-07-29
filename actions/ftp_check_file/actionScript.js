@@ -29,8 +29,10 @@ try {
   logger.debug(`Found: ${files.length} file(s)`);
 } catch (e) {
   actionParameters.ExecutionResult = ERROR;
+  actionParameters.ExecutionMessage = e.message;
   stepExecutionInfo.message = e.message;
   logger.error(e.message);
+  logger.error(e.stack.replace(e.message, ""));
 }
 client.close();
 

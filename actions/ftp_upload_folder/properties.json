@@ -26,9 +26,17 @@
     "default": "/"
   },
   {
+    "label": "Execution Message",
+    "name": "ExecutionMessage",
+    "variableName": "#ExecutionMessage#",
+    "propertytype": "variable",
+    "required": false,
+    "response": false
+  },
+  {
     "label": "Execution Result",
     "name": "ExecutionResult",
-    "variableName": "#FtpUploadFolder.ExecutionResult#",
+    "variableName": "#ExecutionResult#",
     "propertytype": "variable"
   }
 ]

@@ -2,7 +2,7 @@
   {
     "label": "Execution Result",
     "name": "ExecutionResult",
-    "variableName": "#Success.ExecutionResult#",
+    "variableName": "#ExecutionResult#",
     "propertytype": "variable",
     "required": false,
     "response": false

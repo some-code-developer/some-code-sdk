@@ -29,9 +29,17 @@
     "response": false
   },
   {
+    "label": "Execution Message",
+    "name": "ExecutionMessage",
+    "variableName": "#ExecutionMessage#",
+    "propertytype": "variable",
+    "required": false,
+    "response": false
+  },
+  {
     "label": "Execution Result",
     "name": "ExecutionResult",
-    "variableName": "#SqlTableFields.ExecutionResult#",
+    "variableName": "#ExecutionResult#",
     "propertytype": "variable",
     "required": false,
     "response": false

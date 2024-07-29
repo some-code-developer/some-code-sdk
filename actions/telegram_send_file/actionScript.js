@@ -32,8 +32,10 @@ try {
   if (response.status !== 200) throw new Error(`Failed to send file to Telegram: ${response.status} ${response.statusText}`);
 } catch (e) {
   actionParameters.ExecutionResult = ERROR;
+  actionParameters.ExecutionMessage = e.message;
   stepExecutionInfo.message = e.message;
   logger.error(e.message);
+  logger.error(e.stack.replace(e.message, ""));
 }
 
 return actionParameters.ExecutionResult;

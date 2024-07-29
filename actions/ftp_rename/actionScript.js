@@ -15,8 +15,10 @@ try {
   await client.rename(actionParameters.source, actionParameters.target);
 } catch (e) {
   actionParameters.ExecutionResult = ERROR;
+  actionParameters.ExecutionMessage = e.message;
   stepExecutionInfo.message = e.message;
   logger.error(e.message);
+  logger.error(e.stack.replace(e.message, ""));
 }
 client.close();
 return actionParameters.ExecutionResult;

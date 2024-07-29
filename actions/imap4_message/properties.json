@@ -255,9 +255,17 @@
     "propertytype": "variable"
   },
   {
+    "label": "Execution Message",
+    "name": "ExecutionMessage",
+    "variableName": "#ExecutionMessage#",
+    "propertytype": "variable",
+    "required": false,
+    "response": false
+  },
+  {
     "label": "Execution Result",
     "name": "ExecutionResult",
-    "variableName": "#Imap4Messages.ExecutionResult#",
+    "variableName": "#ExecutionResult#",
     "propertytype": "variable",
     "required": false,
     "response": false

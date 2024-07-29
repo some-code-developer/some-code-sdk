@@ -54,7 +54,7 @@
   {
     "label": "Request",
     "name": "hookData",
-    "variableName": "#WebHook.Request#",
+    "variableName": "#Request#",
     "propertytype": "variable",
     "required": false,
     "response": false
