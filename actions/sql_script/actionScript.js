@@ -36,6 +36,8 @@ try {
     for (const key in workflowParameters) sql = sql.split(key).join(workflowParameters[key]);
   }
 
+  actionParameters.sql = sql;
+
   // Executing script
   await dataSource.query(sql);
 
